@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integrated Human Practices | Team Sanjeevani, iGEM 2026</title>
+<style>html,body{margin:0;padding:0;background:#faf8f2}</style>
+</head>
+<body>
+<!-- ================= BEGIN SANJEEVANI HUMAN PRACTICES CONTENT =================
+     Paste everything from this line to END SANJEEVANI HUMAN PRACTICES CONTENT into your human-practices page.
+     It needs no external fonts, images or scripts. All styles are scoped to #sjv-wiki,
+     so they will not touch the rest of your wiki. -->
+<style>
+/* Team Sanjeevani wiki pages. Every rule is scoped to #sjv-wiki, so nothing here touches the rest of the wiki. */
+#sjv-wiki{display:block;color:#16211b;background:#faf8f2;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+#sjv-wiki *,#sjv-wiki *::before,#sjv-wiki *::after{box-sizing:border-box}
+#sjv-wiki :where(h1,h2,h3,h4,h5,p,ul,ol,figure,table,blockquote){margin:0}
+#sjv-wiki :where(ul,ol){padding-left:1.35em}
+#sjv-wiki a{color:#285c40;text-decoration-thickness:1px;text-underline-offset:3px}
+#sjv-wiki a:hover{color:#143726;text-decoration-thickness:2px}
+#sjv-wiki :focus-visible{outline:3px solid #2563eb;outline-offset:2px;border-radius:4px}
+#sjv-wiki .sjv-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#sjv-wiki .sjv-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+#sjv-wiki section,#sjv-wiki h3[id],#sjv-wiki header[id],#sjv-wiki figure[id]{scroll-margin-top:96px}
+
+/* hero */
+#sjv-wiki .sjv-hero{color:#f4f8f1;padding:64px 0 36px;background:radial-gradient(1200px 500px at 85% -10%,rgba(169,201,154,.28),transparent 60%),radial-gradient(700px 400px at -10% 110%,rgba(85,137,74,.35),transparent 60%),linear-gradient(160deg,#0d261b 0%,#143726 45%,#1c4732 100%)}
+#sjv-wiki .sjv-eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#cfe2c5;font-weight:600}
+#sjv-wiki .sjv-h1{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-weight:600;font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.08;margin-top:10px;color:#fff;letter-spacing:-.01em}
+#sjv-wiki .sjv-dek{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.15rem,2.2vw,1.42rem);line-height:1.5;margin-top:18px;max-width:58ch;color:#eef5ea}
+#sjv-wiki .sjv-hero-body{margin-top:22px;max-width:68ch;color:#d9e8d2;display:grid;gap:12px}
+#sjv-wiki .sjv-hero-body a{color:#fff}
+#sjv-wiki .sjv-nav{margin-top:34px}
+#sjv-wiki .sjv-nav ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+#sjv-wiki .sjv-nav-5 ol{grid-template-columns:repeat(5,minmax(0,1fr))}
+#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(4,minmax(0,1fr))}
+#sjv-wiki .sjv-nav a{display:flex;flex-direction:column;gap:2px;height:100%;padding:12px 14px;border-radius:12px;text-decoration:none;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);transition:background .15s ease,border-color .15s ease}
+#sjv-wiki .sjv-nav a:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);color:#fff}
+#sjv-wiki .sjv-nav-n{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1;color:#cfe2c5}
+#sjv-wiki .sjv-nav-t{font-size:.9rem;font-weight:600;line-height:1.3}
+#sjv-wiki .sjv-hero-stats{margin-top:30px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#sjv-wiki .sjv-hero-stat{padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+#sjv-wiki .sjv-hero-stat-v{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.7rem;line-height:1.1;color:#fff;font-weight:600}
+#sjv-wiki .sjv-hero-stat-l{font-size:.86rem;line-height:1.4;color:#d9e8d2;margin-top:4px}
+
+/* sections */
+#sjv-wiki .sjv-section{padding:64px 0;border-top:1px solid #dbe3d6;background:#faf8f2}
+#sjv-wiki .sjv-section:nth-of-type(even){background:#fdfcf8}
+#sjv-wiki .sjv-kicker{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#3a7550}
+#sjv-wiki h2{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.35rem);line-height:1.15;margin-top:6px;color:#0d261b;letter-spacing:-.005em;max-width:30ch}
+#sjv-wiki .sjv-lead{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.12rem,1.9vw,1.3rem);line-height:1.5;color:#3b4a42;margin-top:14px;max-width:62ch}
+#sjv-wiki .sjv-body{margin-top:28px;display:grid;gap:18px}
+#sjv-wiki .sjv-body>p,#sjv-wiki .sjv-body>ul,#sjv-wiki .sjv-body>ol{max-width:72ch}
+#sjv-wiki .sjv-body>ul li,#sjv-wiki .sjv-body>ol li{margin:.35em 0}
+#sjv-wiki .sjv-body>ol.sjv-phases,#sjv-wiki .sjv-body>ol.sjv-journey{max-width:none}
+#sjv-wiki .sjv-body>ol.sjv-phases>li,#sjv-wiki .sjv-body>ol.sjv-journey>li,#sjv-wiki .sjv-body>ol.sjv-chain>li,#sjv-wiki .sjv-body>ul.sjv-sdgs>li{margin:0}
+#sjv-wiki h3{font-size:1.22rem;font-weight:700;color:#143726;margin-top:18px;line-height:1.3}
+#sjv-wiki h4{font-size:1.05rem;font-weight:700;color:#143726}
+#sjv-wiki .sjv-cite{font-size:.72em;line-height:0;margin-left:1px}
+#sjv-wiki .sjv-cite a{text-decoration:none;font-weight:700;padding:0 1px}
+#sjv-wiki .sjv-top{margin-top:28px;font-size:.9rem}
+#sjv-wiki code{font-size:.9em;background:#eff1ee;padding:1px 5px;border-radius:5px}
+
+/* cards */
+#sjv-wiki .sjv-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#sjv-wiki .sjv-card{display:flex;flex-direction:column;gap:10px;padding:20px;background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;box-shadow:0 1px 0 rgba(20,55,38,.04)}
+#sjv-wiki .sjv-card-label{align-self:flex-start;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1c4732;background:#e7f1e1;border:1px solid #cfe2c5;border-radius:999px;padding:3px 10px}
+#sjv-wiki .sjv-card-change{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.42;color:#16211b}
+#sjv-wiki .sjv-card-from{font-size:.88rem;color:#5a6a62;line-height:1.45;margin-top:auto}
+#sjv-wiki .sjv-card-link{font-size:.9rem;font-weight:600}
+
+/* loop */
+#sjv-wiki .sjv-loop-fig{background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;padding:20px}
+#sjv-wiki .sjv-loop{list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-loop-step{position:relative;display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:12px;background:#f3f8f0;border:1px solid #cfe2c5}
+#sjv-wiki .sjv-loop-step:not(:last-child)::after{content:"\2192";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:#3a7550;font-weight:700;font-size:1rem}
+#sjv-wiki .sjv-loop-n{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.25rem;line-height:1;color:#3a7550}
+#sjv-wiki .sjv-loop-t{font-weight:700;color:#143726}
+#sjv-wiki .sjv-loop-d{font-size:.86rem;color:#3b4a42;line-height:1.4}
+#sjv-wiki .sjv-loop-fig figcaption{margin-top:12px;font-size:.9rem;color:#5a6a62}
+
+/* chips */
+#sjv-wiki .sjv-chips{display:flex;flex-wrap:wrap;gap:6px}
+#sjv-wiki .sjv-stage,#sjv-wiki .sjv-status,#sjv-wiki .sjv-kind,#sjv-wiki .sjv-badge{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;line-height:1.2;padding:4px 10px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+#sjv-wiki .sjv-stage{background:#eff1ee;color:#3f4943;border-color:#d9ded9}
+#sjv-wiki .sjv-status-changed,#sjv-wiki .sjv-badge-done{background:#e7f1e1;color:#143726;border-color:#a9c99a}
+#sjv-wiki .sjv-status-shaped,#sjv-wiki .sjv-badge-ongoing{background:#e8f0f9;color:#173f63;border-color:#c6d9ee}
+#sjv-wiki .sjv-status-context{background:#eff1ee;color:#3f4943;border-color:#d9ded9}
+#sjv-wiki .sjv-status-open,#sjv-wiki .sjv-badge-planned{background:#fcf1da;color:#6b4100;border-color:#f3d79c}
+#sjv-wiki .sjv-kind-hope{background:#e7f1e1;color:#143726;border-color:#a9c99a}
+#sjv-wiki .sjv-kind-risk{background:#fbe9e1;color:#7c2d12;border-color:#f1c7b3}
+
+/* people */
+#sjv-wiki .sjv-people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+#sjv-wiki .sjv-people-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+#sjv-wiki .sjv-person{display:flex;flex-direction:column;gap:10px;padding:20px;background:#ffffff;border:1px solid #dbe3d6;border-radius:14px}
+#sjv-wiki .sjv-person-head{display:flex;gap:12px;align-items:flex-start}
+#sjv-wiki .sjv-avatar{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem;color:#143726;background:linear-gradient(140deg,#e7f1e1,#cfe2c5);border:1px solid #a9c99a}
+#sjv-wiki .sjv-person-name{font-size:1.04rem;line-height:1.3;color:#0d261b}
+#sjv-wiki .sjv-person-role{font-size:.86rem;color:#5a6a62;line-height:1.4;margin-top:2px}
+#sjv-wiki .sjv-label{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5a6a62}
+#sjv-wiki .sjv-person-text{font-size:.97rem;line-height:1.55}
+#sjv-wiki .sjv-person-changed{margin-top:2px;padding:12px 14px;border-radius:10px;background:#f3f8f0;border-left:4px solid #3a7550;display:grid;gap:4px}
+
+/* callouts */
+#sjv-wiki .sjv-callout{padding:20px 22px;border-radius:14px;border:1px solid #dbe3d6;border-left-width:6px;display:grid;gap:10px;max-width:84ch;background:#ffffff}
+#sjv-wiki .sjv-callout-title{font-weight:700;font-size:1.02rem;color:#0d261b}
+#sjv-wiki .sjv-callout ul,#sjv-wiki .sjv-callout ol{display:grid;gap:6px}
+#sjv-wiki .sjv-callout-why{border-left-color:#3a7550}
+#sjv-wiki .sjv-callout-changed{border-left-color:#1c4732;background:#f3f8f0}
+#sjv-wiki .sjv-callout-note{border-left-color:#c58a14;background:#fcf1da}
+#sjv-wiki .sjv-callout-plan{border-left-color:#2f6aa3;background:#e8f0f9}
+#sjv-wiki .sjv-callout-honest{border-left-color:#7c2d12;background:#fbe9e1}
+#sjv-wiki .sjv-pull{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,2.2vw,1.45rem);line-height:1.45;color:#143726;border-left:4px solid #55894a;padding:6px 0 6px 18px;max-width:60ch}
+
+/* two claims */
+#sjv-wiki .sjv-ledger{border:2px solid #1c4732;border-radius:18px;background:#ffffff;padding:22px;display:grid;gap:18px;max-width:980px}
+#sjv-wiki .sjv-ledger-title{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.4rem;font-weight:600;color:#0d261b}
+#sjv-wiki .sjv-ledger-claims{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+#sjv-wiki .sjv-ledger-vs{align-self:center;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-style:italic;color:#5a6a62;font-size:1.1rem}
+#sjv-wiki .sjv-claim{padding:16px;border-radius:12px;background:#eff1ee;border:1px solid #d9ded9;display:grid;gap:6px;align-content:start}
+#sjv-wiki .sjv-claim-tag{justify-self:start;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3f4943}
+#sjv-wiki .sjv-claim-src{font-size:.86rem;color:#5a6a62}
+#sjv-wiki .sjv-claim-text{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.15rem;line-height:1.4}
+#sjv-wiki .sjv-ledger-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#sjv-wiki .sjv-ledger-cols h5{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#285c40;margin-bottom:6px}
+#sjv-wiki .sjv-ledger-cols ul{display:grid;gap:6px}
+#sjv-wiki .sjv-ledger-after{padding-top:14px;border-top:1px solid #dbe3d6;font-weight:600;color:#143726}
+
+/* tables */
+#sjv-wiki .sjv-table-wrap{overflow-x:auto;border:1px solid #dbe3d6;border-radius:14px;background:#ffffff}
+#sjv-wiki .sjv-table{width:100%;border-collapse:collapse;font-size:.94rem;line-height:1.5;min-width:680px}
+#sjv-wiki .sjv-table caption{caption-side:bottom;text-align:left;padding:10px 14px;font-size:.85rem;color:#5a6a62;border-top:1px solid #dbe3d6}
+#sjv-wiki .sjv-table th,#sjv-wiki .sjv-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid #dbe3d6}
+#sjv-wiki .sjv-table thead th{background:#f3f8f0;color:#143726;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #bfcdb7}
+#sjv-wiki .sjv-table tbody th{font-weight:700;color:#0d261b;min-width:150px}
+#sjv-wiki .sjv-table tbody tr:last-child>*{border-bottom:0}
+#sjv-wiki .sjv-table-impacts td:first-child{width:76px}
+#sjv-wiki .sjv-table-log{font-size:.88rem;min-width:900px}
+#sjv-wiki .sjv-table-log .sjv-status{margin-bottom:4px}
+#sjv-wiki .sjv-table-wide{min-width:860px}
+
+/* details */
+#sjv-wiki .sjv-details{border:1px solid #dbe3d6;border-radius:14px;background:#ffffff}
+#sjv-wiki .sjv-details>summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:700;color:#143726;display:flex;gap:10px;align-items:center}
+#sjv-wiki .sjv-details>summary::-webkit-details-marker{display:none}
+#sjv-wiki .sjv-details>summary::before{content:"+";display:inline-grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#e7f1e1;color:#143726;font-weight:700}
+#sjv-wiki .sjv-details[open]>summary::before{content:"-"}
+#sjv-wiki .sjv-details>.sjv-table-wrap{border:0;border-top:1px solid #dbe3d6;border-radius:0 0 14px 14px}
+#sjv-wiki .sjv-details-body{padding:0 18px 18px;display:grid;gap:14px}
+
+/* diagrams drawn in SVG */
+#sjv-wiki .sjv-flow-fig{background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;padding:18px}
+#sjv-wiki .sjv-flow{display:block;width:100%;height:auto}
+#sjv-wiki .sjv-flow-box{fill:#fff;stroke:#b9c6b3;stroke-width:1.5}
+#sjv-wiki .sjv-flow-box-hl{fill:#e8f0f9;stroke:#2f6aa3;stroke-width:2.5}
+#sjv-wiki .sjv-flow-dash{fill:#f7f8f6;stroke:#9aa79f;stroke-width:1.5;stroke-dasharray:6 5}
+#sjv-wiki .sjv-flow-dia{fill:#fff;stroke:#b9c6b3;stroke-width:1.5}
+#sjv-wiki .sjv-flow-t1{font:700 19px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#16211b}
+#sjv-wiki .sjv-flow-t2{font:400 16px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#3b4a42}
+#sjv-wiki .sjv-flow-t3{font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#5a6a62}
+#sjv-wiki .sjv-flow-ln{fill:none;stroke:#7d8b84;stroke-width:1.8}
+#sjv-wiki .sjv-flow-lbl{font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#5a6a62}
+#sjv-wiki .sjv-flow-list{display:none;margin-top:6px}
+#sjv-wiki .sjv-flow-fig figcaption{margin-top:12px;font-size:.88rem;color:#5a6a62}
+
+/* links to other pages */
+#sjv-wiki .sjv-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#sjv-wiki .sjv-links-1{grid-template-columns:minmax(0,560px)}
+#sjv-wiki .sjv-linkcard{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;text-decoration:none;color:#16211b;transition:border-color .15s ease,box-shadow .15s ease}
+#sjv-wiki .sjv-linkcard:hover{border-color:#55894a;box-shadow:0 4px 18px rgba(20,55,38,.08);color:#16211b}
+#sjv-wiki .sjv-linkcard-t{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-linkcard-d{font-size:.94rem;line-height:1.5;color:#3b4a42}
+
+/* buttons */
+#sjv-wiki .sjv-downloads{display:flex;flex-wrap:wrap;gap:10px}
+#sjv-wiki .sjv-btn{font:600 .95rem system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;padding:10px 16px;border-radius:10px;cursor:pointer;border:1px solid #1c4732;background:#1c4732;color:#fff}
+#sjv-wiki .sjv-btn:hover{background:#143726}
+#sjv-wiki .sjv-btn-ghost{background:transparent;color:#1c4732}
+#sjv-wiki .sjv-btn-ghost:hover{background:#f3f8f0;color:#143726}
+
+/* photo slots and galleries */
+#sjv-wiki .sjv-photo{display:grid;gap:8px;max-width:820px;align-content:start;min-width:0}
+#sjv-wiki .sjv-photo-slot{min-width:0}
+#sjv-wiki .sjv-gallery .sjv-photo{max-width:none}
+#sjv-wiki .sjv-photo-slot{aspect-ratio:4/3;width:100%;border-radius:14px;border:2px dashed #bfcdb7;background:repeating-linear-gradient(135deg,#f3f8f0 0 14px,#fff 14px 28px);display:grid;place-items:center;align-content:center;gap:8px;color:#285c40;text-align:center;padding:16px}
+#sjv-wiki .sjv-photo-slot svg{width:40px;height:40px}
+#sjv-wiki .sjv-photo-hint{font-size:.86rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#sjv-wiki .sjv-photo-img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #dbe3d6}
+#sjv-wiki .sjv-photo figcaption{font-size:.88rem;line-height:1.45;color:#5a6a62}
+#sjv-wiki .sjv-photo-wide .sjv-photo-slot,#sjv-wiki .sjv-photo-wide .sjv-photo-img{aspect-ratio:16/9}
+#sjv-wiki .sjv-gallery{display:grid;gap:12px}
+#sjv-wiki .sjv-gallery-title{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#285c40}
+#sjv-wiki .sjv-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* stat tiles */
+#sjv-wiki .sjv-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-stats-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#sjv-wiki .sjv-stat{padding:18px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;display:grid;gap:4px;align-content:start}
+#sjv-wiki .sjv-stat-v{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.05;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-stat-l{font-size:.95rem;line-height:1.4;color:#16211b}
+#sjv-wiki .sjv-stat-s{font-size:.8rem;line-height:1.4;color:#5a6a62}
+
+/* programme phases */
+#sjv-wiki .sjv-phases{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:none}
+#sjv-wiki .sjv-phase{position:relative;display:grid;gap:10px;align-content:start;padding:20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;border-top:6px solid #3a7550}
+#sjv-wiki .sjv-phase-planned{border-top-color:#c58a14;background:#fffdf7}
+#sjv-wiki .sjv-phase-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#sjv-wiki .sjv-phase-n{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5a6a62}
+#sjv-wiki .sjv-phase-title{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.3rem;font-weight:600;color:#0d261b}
+#sjv-wiki .sjv-phase-stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+#sjv-wiki .sjv-phase-num{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-phase-planned .sjv-phase-num{color:#6b4100}
+#sjv-wiki .sjv-phase-unit{font-size:.9rem;color:#3b4a42}
+#sjv-wiki .sjv-phase-body{display:grid;gap:8px;font-size:.97rem}
+#sjv-wiki .sjv-phase-body ul{display:grid;gap:4px}
+
+/* SWOT */
+#sjv-wiki .sjv-swot-fig{display:grid;gap:10px}
+#sjv-wiki .sjv-swot-axes{font-size:.86rem;color:#5a6a62}
+#sjv-wiki .sjv-swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-swot-q{padding:18px 20px;border-radius:14px;border:2px solid;display:grid;gap:8px;align-content:start}
+#sjv-wiki .sjv-swot-q ul{display:grid;gap:5px;font-size:.97rem}
+#sjv-wiki .sjv-swot-good{border-color:#7fb86a;background:#f1f8ed}
+#sjv-wiki .sjv-swot-bad{border-color:#e0b04a;background:#fff8e8}
+#sjv-wiki .sjv-swot-q h3{font-size:1.05rem;margin-top:0}
+#sjv-wiki .sjv-swot-fig figcaption{font-size:.86rem;color:#5a6a62}
+
+/* roadmap: four phases in a row, the three gates underneath, each gate under the boundary it guards */
+#sjv-wiki .sjv-roadmap{list-style:none;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:14px 12px;align-items:start}
+#sjv-wiki .sjv-road-phase{position:relative;grid-row:1;align-self:stretch;padding:16px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;display:grid;gap:6px;align-content:start}
+#sjv-wiki .sjv-road-phase:not(.sjv-road-p4)::after{content:"\2192";position:absolute;right:-12px;top:22px;color:#3a7550;font-weight:700}
+#sjv-wiki .sjv-road-p1{grid-column:1/span 2}
+#sjv-wiki .sjv-road-p2{grid-column:3/span 2}
+#sjv-wiki .sjv-road-p3{grid-column:5/span 2}
+#sjv-wiki .sjv-road-p4{grid-column:7/span 2}
+#sjv-wiki .sjv-road-now{border:2px solid #2f6aa3;background:#e8f0f9}
+#sjv-wiki .sjv-road-phase h3{font-size:1rem;margin-top:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#sjv-wiki .sjv-road-phase ul{font-size:.92rem;display:grid;gap:3px;padding-left:1.1em}
+#sjv-wiki .sjv-road-gate{grid-row:2;display:grid;justify-items:center;gap:6px;text-align:center}
+#sjv-wiki .sjv-road-g1{grid-column:2/span 2}
+#sjv-wiki .sjv-road-g2{grid-column:4/span 2}
+#sjv-wiki .sjv-road-g3{grid-column:6/span 2}
+#sjv-wiki .sjv-road-gate-mark{width:18px;height:18px;transform:rotate(45deg);background:#a9c99a;border:2px solid #285c40;border-radius:3px}
+#sjv-wiki .sjv-road-gate p{font-size:.84rem;line-height:1.35;color:#3b4a42}
+#sjv-wiki .sjv-road-gate .sjv-label{font-size:.68rem}
+
+/* numbered steps */
+#sjv-wiki .sjv-journey{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#sjv-wiki .sjv-journey li{position:relative;padding:16px 16px 16px 58px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;min-height:86px;display:flex;align-items:center;font-size:.97rem;line-height:1.45}
+#sjv-wiki .sjv-journey-n{position:absolute;left:14px;top:16px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.05rem;color:#fff;background:#285c40}
+#sjv-wiki .sjv-chain{list-style:none;padding:0;display:grid;gap:10px;max-width:84ch}
+#sjv-wiki .sjv-chain li{position:relative;padding:14px 16px 14px 58px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;font-size:.98rem;line-height:1.5}
+#sjv-wiki .sjv-chain li:not(:last-child)::after{content:"\2193";position:absolute;left:26px;bottom:-17px;color:#3a7550;font-weight:700;z-index:1}
+#sjv-wiki .sjv-chain-n{position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;color:#143726;background:#e7f1e1;border:1px solid #a9c99a}
+#sjv-wiki .sjv-chain li.sjv-chain-ours{border-color:#2f6aa3;background:#e8f0f9}
+
+/* formula */
+#sjv-wiki .sjv-formula{padding:18px 20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;max-width:84ch;display:grid;gap:8px}
+#sjv-wiki .sjv-formula-eq{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.6;color:#0d261b}
+#sjv-wiki .sjv-formula-eq b{font-weight:700}
+#sjv-wiki .sjv-formula-note{font-size:.88rem;color:#5a6a62}
+
+/* SDGs */
+#sjv-wiki .sjv-sdgs{list-style:none;padding:0;display:grid;gap:12px;max-width:92ch}
+#sjv-wiki .sjv-sdg{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:16px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;border-left:8px solid #888}
+#sjv-wiki .sjv-sdg-n{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.4rem;font-weight:700;color:#16211b;background:#eff1ee}
+#sjv-wiki .sjv-sdg-t{font-weight:700;color:#0d261b}
+#sjv-wiki .sjv-sdg-target{font-size:.92rem;color:#3b4a42;margin-top:2px}
+#sjv-wiki .sjv-sdg-ours{font-size:.95rem;margin-top:6px}
+#sjv-wiki .sjv-sdg-3{border-left-color:#4C9F38}
+#sjv-wiki .sjv-sdg-4{border-left-color:#C5192D}
+#sjv-wiki .sjv-sdg-5{border-left-color:#FF3A21}
+#sjv-wiki .sjv-sdg-6{border-left-color:#26BDE2}
+#sjv-wiki .sjv-sdg-8{border-left-color:#A21942}
+#sjv-wiki .sjv-sdg-10{border-left-color:#DD1367}
+#sjv-wiki .sjv-sdg-12{border-left-color:#BF8B2E}
+#sjv-wiki .sjv-sdg-15{border-left-color:#56C02B}
+#sjv-wiki .sjv-sdg-16{border-left-color:#00689D}
+#sjv-wiki .sjv-sdg-17{border-left-color:#19486A}
+
+/* references */
+#sjv-wiki .sjv-refs{display:grid;gap:10px;max-width:90ch;margin-top:22px;font-size:.95rem;overflow-wrap:anywhere}
+#sjv-wiki .sjv-refs li{padding-left:4px}
+#sjv-wiki .sjv-refs li:target{background:#fcf1da;border-radius:6px}
+#sjv-wiki .sjv-section-refs h3{margin-top:30px}
+#sjv-wiki .sjv-section-refs h4{margin-top:16px;font-size:.95rem;color:#1c4732}
+#sjv-wiki .sjv-laws{display:grid;gap:6px;max-width:90ch;margin-top:8px;font-size:.92rem;color:#3b4a42}
+#sjv-wiki .sjv-about{margin-top:34px;padding:18px 20px;border-radius:14px;background:#f3f8f0;border:1px solid #cfe2c5;max-width:90ch;display:grid;gap:8px;font-size:.94rem}
+#sjv-wiki .sjv-about h3{margin-top:0}
+
+/* responsive */
+@media (max-width:980px){
+  #sjv-wiki .sjv-nav ol,#sjv-wiki .sjv-nav-5 ol,#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop-step::after{display:none}
+  #sjv-wiki .sjv-links{grid-template-columns:1fr}
+  #sjv-wiki .sjv-cards,#sjv-wiki .sjv-people{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-phases{grid-template-columns:1fr}
+  #sjv-wiki .sjv-stats,#sjv-wiki .sjv-hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-journey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-roadmap{grid-template-columns:1fr}
+  #sjv-wiki .sjv-road-phase,#sjv-wiki .sjv-road-gate{grid-column:auto;grid-row:auto}
+  #sjv-wiki .sjv-road-phase::after{display:none}
+  #sjv-wiki .sjv-road-gate{grid-auto-flow:column;justify-content:start;align-items:center;text-align:left;padding-left:18px}
+}
+@media (max-width:700px){
+  #sjv-wiki{font-size:16px}
+  #sjv-wiki .sjv-wrap{padding:0 16px}
+  #sjv-wiki .sjv-hero{padding:44px 0 28px}
+  #sjv-wiki .sjv-section{padding:44px 0}
+  #sjv-wiki .sjv-nav ol,#sjv-wiki .sjv-nav-5 ol,#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop{grid-template-columns:1fr}
+  #sjv-wiki .sjv-people,#sjv-wiki .sjv-people-2,#sjv-wiki .sjv-cards{grid-template-columns:1fr}
+  #sjv-wiki .sjv-ledger{padding:16px}
+  #sjv-wiki .sjv-ledger-claims{grid-template-columns:1fr}
+  #sjv-wiki .sjv-ledger-vs{justify-self:center}
+  #sjv-wiki .sjv-ledger-cols{grid-template-columns:1fr}
+  #sjv-wiki .sjv-flow{display:none}
+  #sjv-wiki .sjv-flow-list{display:block}
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-swot{grid-template-columns:1fr}
+  #sjv-wiki .sjv-journey{grid-template-columns:1fr}
+  #sjv-wiki .sjv-sdg{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  #sjv-wiki .sjv-stats,#sjv-wiki .sjv-hero-stats{grid-template-columns:1fr}
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{gap:10px}
+  #sjv-wiki .sjv-photo-slot{padding:10px;gap:6px}
+  #sjv-wiki .sjv-photo-slot svg{width:30px;height:30px}
+  #sjv-wiki .sjv-photo-hint{font-size:.72rem}
+}
+@media (max-width:330px){
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  #sjv-wiki *{transition:none!important;scroll-behavior:auto!important}
+}
+@media print{
+  #sjv-wiki .sjv-hero{background:#143726!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #sjv-wiki .sjv-details>*{display:block}
+  #sjv-wiki .sjv-downloads{display:none}
+}
+
+</style>
+<div id="sjv-wiki" class="sjv">
+<header class="sjv-hero" id="sjv-top"><div class="sjv-wrap"><p class="sjv-eyebrow">Team Sanjeevani · iGEM 2026 · IISER Thiruvananthapuram</p><h1 class="sjv-h1">Integrated Human Practices</h1><p class="sjv-dek">We began with a question, not a solution: is heavy-metal contamination from mining really a problem? This page follows that question from our first reading, to the people who answered it, to the changes it made to Sanjeevani.</p><div class="sjv-hero-body"><p>We first read how mining waste is governed and what it does to people’s health, in India and abroad. We then took our questions to a legal and environmental-justice panel and to occupational-health specialists, and went to mining sites in Odisha and to tribal communities in Paderu, Andhra Pradesh. Once we were convinced the problem was real, we went back to the science (which moss, which protocol, how to handle it) with bryophyte researchers, and asked a biochar researcher what should happen to the moss after it has done its job.</p>
+<p>Along the way a conversation gave us our name, we changed a lab protocol, how we position Sanjeevani and the claims we make, and we planned what should happen to our moss at the end of its life.</p></div><nav class="sjv-nav" aria-label="Sections on this page"><ol><li><a href="#sjv-ch1"><span class="sjv-nav-n">1</span><span class="sjv-nav-t">Is it a problem?</span></a></li><li><a href="#sjv-ch2"><span class="sjv-nav-n">2</span><span class="sjv-nav-t">The panels</span></a></li><li><a href="#sjv-ch3"><span class="sjv-nav-n">3</span><span class="sjv-nav-t">The mines</span></a></li><li><a href="#sjv-ch4"><span class="sjv-nav-n">4</span><span class="sjv-nav-t">Paderu</span></a></li><li><a href="#sjv-ch5"><span class="sjv-nav-n">5</span><span class="sjv-nav-t">Building the moss</span></a></li><li><a href="#sjv-ch6"><span class="sjv-nav-n">6</span><span class="sjv-nav-t">After the harvest</span></a></li></ol></nav></div></header>
+<section class="sjv-section" id="sjv-glance" aria-labelledby="sjv-glance-h"><div class="sjv-wrap"><p class="sjv-kicker">At a glance</p><h2 id="sjv-glance-h">What Human Practices changed</h2><p class="sjv-lead">Each card links a person or group to the change they caused. Only changes our records name appear here.</p><div class="sjv-body"><div class="sjv-cards">
+<article class="sjv-card"><span class="sjv-card-label">Health claims</span><p class="sjv-card-change">We widened our idea of impact to include workers and residents, and we make no health claim we cannot measure.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Health panel: Dr. Ravi Babu K and Dr. Shubhangi Pingle</p><a class="sjv-card-link" href="#sjv-ch2">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Accountability</span><p class="sjv-card-change">We stopped treating remediation as only a technical problem: liability, consent and community rights are part of the question.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Legal &amp; Mining Environmental Justice Panel</p><a class="sjv-card-link" href="#sjv-ch2">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Evidence</span><p class="sjv-card-change">Her fact-verification method made us question and verify facts. We keep claims and evidence apart, as at Chatrapur.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Sandhya Ravishankar, journalist</p><a class="sjv-card-link" href="#sjv-ch3">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Scope</span><p class="sjv-card-change">We declined a funded side-project to protect our core timeline.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Tata Steel and Tata Steel Foundation</p><a class="sjv-card-link" href="#sjv-ch3">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Our name</span><p class="sjv-card-change">He suggested Sanjeevani: a name the communities we would work with could say and remember.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>D.K. Balaji, IAS, District Collector, Krishna district</p><a class="sjv-card-link" href="#sjv-ch4">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Wet-lab protocol</span><p class="sjv-card-change">Their 1-day moss protocol replaced our 2-day protocol.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>IISER Pune: Dr. Anjan Banerjee, Dr. Amey Bhide, Dr. Ishfaq Khan</p><a class="sjv-card-link" href="#sjv-ch5">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Positioning</span><p class="sjv-card-change">An insight into the midstream bottleneck for rare-earth elements reframed Sanjeevani as supplementary, not a replacement.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Dr. Raghavan Gopalan, ARCI</p><a class="sjv-card-link" href="#sjv-ch5">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">Moss selection</span><p class="sjv-card-change">Bryophyte identification, habitat diversity and substrate characteristics guide how we approach moss selection and sites.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Dr. Manju C. Nair, University of Calicut</p><a class="sjv-card-link" href="#sjv-ch5">Read the story<span aria-hidden="true"> →</span></a></article>
+<article class="sjv-card"><span class="sjv-card-label">End of life</span><p class="sjv-card-change">A question about arsenic in rice led us to biochar: harvested moss would be pyrolysed, and every batch tested before use.</p><p class="sjv-card-from"><span class="sjv-sr">From: </span>Paderu, then Dr. Sudhakar Srivastava, BHU</p><a class="sjv-card-link" href="#sjv-ch6">Read the story<span aria-hidden="true"> →</span></a></article>
+</div></div></div></section>
+<section class="sjv-section" id="sjv-method" aria-labelledby="sjv-method-h"><div class="sjv-wrap"><p class="sjv-kicker">Our approach</p><h2 id="sjv-method-h">How we worked</h2><p class="sjv-lead">We let each answer decide our next question, and we count a conversation as integrated only when we can name what it changed.</p><div class="sjv-body"><figure class="sjv-loop-fig"><ol class="sjv-loop" aria-label="How each step fed the next"><li class="sjv-loop-step"><span class="sjv-loop-n" aria-hidden="true">1</span><span class="sjv-loop-t">Question</span><span class="sjv-loop-d">Is it really a problem?</span></li><li class="sjv-loop-step"><span class="sjv-loop-n" aria-hidden="true">2</span><span class="sjv-loop-t">Read</span><span class="sjv-loop-d">Law and health records, in India and abroad</span></li><li class="sjv-loop-step"><span class="sjv-loop-n" aria-hidden="true">3</span><span class="sjv-loop-t">Ask</span><span class="sjv-loop-d">Legal and health specialists</span></li><li class="sjv-loop-step"><span class="sjv-loop-n" aria-hidden="true">4</span><span class="sjv-loop-t">Go and see</span><span class="sjv-loop-d">Mines in Odisha; tribal communities in Paderu</span></li><li class="sjv-loop-step"><span class="sjv-loop-n" aria-hidden="true">5</span><span class="sjv-loop-t">Change</span><span class="sjv-loop-d">Name, protocol, positioning, claims, end of life</span></li></ol><figcaption><span aria-hidden="true">↻</span> Each change raised a new question, and the loop started again.</figcaption></figure>
+<p>We kept our conversations in a shared interaction log: who the person is, what they told us, what we still needed to confirm, and what it meant for Sanjeevani. Each entry is marked as confirmed, still being filled in, or still needing attribution. On this page, an interaction appears as a change only when our records name one; the rest appear as context or open questions. Where our log gives a stage label, the card shows it.</p>
+<p>Two kinds of sustainability guided the work. Environmental sustainability means contamination, tailings management and ecological restoration. Social sustainability means community perspectives, accessibility, gender equality, environmental justice and participation. Alongside them we held to an evidence-led approach: describe what Sanjeevani is meant to do for the environment, without overstating what it does for people’s health.</p></div></div></section>
+<section class="sjv-section" id="sjv-ch1" aria-labelledby="sjv-ch1-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 1</p><h2 id="sjv-ch1-h">Is it really a problem?</h2><p class="sjv-lead">Yes. Before designing anything, we checked how big the problem is, what it does to people, and what the law does about it. Every record pointed to a real, present problem.</p><div class="sjv-body"><h3>How big is it?</h3>
+<p>Toxic metals in soil are not a local problem. A 2025 analysis of 796,084 soil data points estimated that 14 to 17% of the world’s cropland, about 242 million hectares, exceeds agricultural thresholds for at least one toxic metal, and that 0.9 to 1.4 billion people live in high-risk regions.<sup class="sjv-cite"><a href="#sjv-ref-1" aria-label="Reference 1">1</a></sup></p>
+<p>Mining is one route by which such metals reach soil and water. Arsenic, a Group 1 carcinogen in the IARC classification, occurs in soil and groundwater through natural processes and human activities, including mining, arsenic-based pesticides and irrigation with naturally contaminated groundwater.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></p>
+<h3>What it does to people</h3>
+<p>We started with the places where mining’s human cost is most visible: the lead-poisoning cluster around the open pit at Cerro de Pasco, Peru; mercury-based gold extraction at La Rinconada, Peru; and the acidic, metal-laden water of the Berkeley Pit in Butte, Montana, USA. In each case the contamination did not stay at the mine. It reached children, drinking water, food chains and nearby homes.</p>
+<p>Closer to home, decades of opencast chromite mining in Odisha’s Sukinda Valley left unlined overburden dumps and exposed tailings. During the monsoon, rainwater leaches hexavalent chromium, a carcinogen, from these dumps into the Brahmani River. We would later visit Sukinda ourselves (<a href="#sjv-ch3">Chapter 3</a>).</p>
+<!-- Optional: link here to a separate wiki page with your full health background research, once its case-study figures have sources. -->
+<h3>How the law handles it in India</h3>
+<p>India regulates heavy metals from mining through overlapping environmental and mineral laws. The Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016 classify heavy-metal-bearing wastes such as ore tailings, slag and chemical sludge as hazardous. The Mineral Conservation and Development Rules, 2017 set how mining waste and overburden must be stored within a lease. The Water (Prevention and Control of Pollution) Act, 1974 requires mines to obtain consent to operate from State Pollution Control Boards and to treat acidic, metal-heavy wastewater before release.</p>
+<p>Many of these rules followed disasters. The Sukinda crisis pushed stricter dump-containment rules into the 2017 Rules, and litigation over legacy mine waste led to frameworks for mapping and remediating contaminated ‘orphan’ sites. A series of ash-pond and waste-dam failures at industrial facilities, such as the 2019 Essar Power breach in Madhya Pradesh and the 2020 Reliance Power breach at Sasan, led to the 2021 fly-ash utilisation rules, a ‘polluter pays’ penalty of ₹1,000 per tonne of unutilised or improperly dumped ash, and annual safety certification for waste ponds.</p>
+<p>The gaps mattered most for a project like ours:</p>
+<ul><li>Raw mine overburden is legally treated as ‘high-volume, low-effect’ waste, so it often escapes hazardous-waste treatment even when it holds leachable metals.</li><li>Official guidelines focus almost entirely on physical containment and chemical treatment. We found no specific protocols or safety standards for large-scale biological or genetic clean-up in mines.</li><li>When a company goes bankrupt or a lease expires, a mine can become an ‘orphan site’. Tracking of abandoned tailing dams is weak, and closure funds can be stuck in red tape for years.</li><li>Sand, gravel and other ‘minor minerals’ are regulated by individual states, whose environmental enforcement is often weaker.</li></ul>
+<p>Two findings stood out for Sanjeevani. The Environmental Impact Assessment Notification already asks for ‘progressive green-belting’ and the planting of hyperaccumulating local flora on stabilised dumps, so plants that take up metals already have a place in mine restoration. But the mine-waste guidelines we read contain no rules for living, engineered remediation agents, and a gap in the rules is not permission to act.</p>
+<h3>How other countries handle it</h3>
+<p>We compared how six jurisdictions regulate mining waste, and how five of them regulate releasing an engineered organism. The pattern was almost always the same: the law tightened after a disaster. Before Minamata disease, Japanese factories could legally discharge heavy-metal effluent into bays and rivers; afterwards, the Water Pollution Prevention Act of 1970 set binding national effluent standards for heavy metals. Brazil banned upstream tailings dams after the Mariana and Brumadinho collapses, and the EU’s mining-waste directive was drafted to prevent repeats of major tailings-dam failures.</p>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="How the jurisdictions we studied regulate mining waste and the release of engineered organisms. Full titles are listed under References.">
+<table class="sjv-table">
+<caption>How the jurisdictions we studied regulate mining waste and the release of engineered organisms. Full titles are listed under References.</caption>
+<thead><tr><th scope="col">Jurisdiction</th><th scope="col">Mining waste</th><th scope="col">Releasing an engineered organism</th></tr></thead><tbody>
+<tr><th scope="row">United States</th><td>Waste from extracting and processing ores is exempt from federal hazardous-waste classification under the RCRA ‘Bevill’ exemption; federal land rules require tailings to be disposed of without undue degradation.</td><td>Anyone who manufactures, imports or processes a microorganism for commercial purposes must notify the EPA (a Microbial Commercial Activity Notice) at least 90 days before introducing it into commerce (TSCA).</td></tr>
+<tr><th scope="row">Canada</th><td>The Metal and Diamond Mining Effluent Regulations list arsenic, copper, cyanide, lead, nickel and zinc among deleterious substances, with concentration limits for effluent.</td><td>A living organism not on the Domestic Substances List cannot be manufactured or imported until prescribed information is given to the Minister (CEPA 1999).</td></tr>
+<tr><th scope="row">European Union</th><td>Directive 2006/21/EC requires extractive waste to be managed without endangering human health or the environment, and a financial guarantee before a waste facility starts operating.</td><td>Directive 2001/18/EC applies the precautionary principle to any deliberate release of GMOs.</td></tr>
+<tr><th scope="row">Brazil</th><td>Law 14.066/2020 prohibits building or raising mining dams by the upstream method.</td><td>Under Law 11.105/2005, the national biosafety commission (CTNBio) decides case by case, including on release into the environment.</td></tr>
+<tr><th scope="row">Australia (Queensland)</th><td>The Environmental Protection Act 1994 defines hazardous contaminants; mining-lease conditions require acid-producing waste rock to be separated, where practical, and backfilled.</td><td>Under the federal Gene Technology Act 2000, dealing with a GMO without authorisation by a licence is an offence.</td></tr>
+<tr><th scope="row">Chile</th><td>Law 20.551 requires every mining operation to have a closure plan with a financial guarantee.</td><td>Not covered in our research.</td></tr>
+</tbody></table></div>
+<p>The lesson was uncomfortable but important: knowing how mining-waste law works does not give anyone the right to introduce a living organism into a clean-up. Release is regulated separately, and a new species could create a new environmental problem by destroying or hybridising the native flora and fauna of a region.</p>
+<h3>Our answer</h3>
+<p>By the end of this reading we were convinced the problem is real. We were also left with questions no document could answer for us: who is responsible when a mine is abandoned, who gets a say in how a site is cleaned up, and what exposure actually does to the people who work and live there. So we took those questions to people.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-ch2" aria-labelledby="sjv-ch2-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 2</p><h2 id="sjv-ch2-h">Asking the people who know</h2><p class="sjv-lead">Our reading raised two kinds of question, legal and health, so we went to specialists in each: a panel on mining law and environmental justice, and a health panel on occupational exposure.</p><div class="sjv-body"><h3 id="sjv-legal-panel">The Legal &amp; Mining Environmental Justice Panel, 29 August 2026</h3>
+<p>To understand the legal side more deeply, we held a panel on mining law and environmental justice on 29 August 2026, with five speakers, including voices from South Africa and the Philippines. It brought legal and civil-society perspectives to the questions our reading had left open: mine waste, community rights, restoration and accountability.</p>
+<div class="sjv-people">
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">SS</span><div><h4 class="sjv-person-name">Satwik Sathpathy</h4><p class="sjv-person-role">NLU Odisha · legal and environmental-law perspective</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Legal panel</span><span class="sjv-status sjv-status-context"><span aria-hidden="true">•</span> Context</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Discussed the ecological damage associated with mining, including the impact of mining-related contamination on water systems and river tributaries.</p>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">EK</span><div><h4 class="sjv-person-name">Eesha Khandelwal</h4><p class="sjv-person-role">Symbiosis · legal and environmental-justice perspective</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Legal panel</span><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Discussed the economic benefits of mining and the idea of negative externalities, where economic activity imposes costs on other people or communities, and raised the resource-curse framework.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">We frame mining as a trade-off between economic benefits and environmental and social costs, rather than as a purely negative or purely economic activity.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">KK</span><div><h4 class="sjv-person-name">Katlego Kgasi</h4><p class="sjv-person-role">South Africa · mining and environmental-justice perspective</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Legal panel</span><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Highlighted conflicts of interest between government officials and private-sector interests, the financial power of mining companies, how hard it is for smaller players and individuals to take part effectively, and the role of international interests. Emphasised community agency and communities’ claim to the resources that affect them, and argued that bioremediation or CSR should not excuse what companies do to the environment.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">Strengthened our focus on power asymmetry, community agency, resource rights and corporate accountability in mining.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">GM</span><div><h4 class="sjv-person-name">Grizelda Mayo-Anda</h4><p class="sjv-person-role">ELAC, Philippines · environmental and community-rights law</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Legal panel</span><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Emphasised local community advocacy and a case-by-case approach when weighing government and private interests; discussed safeguards for Indigenous peoples under Philippine law and the importance of community-level mechanisms.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">Strengthened our focus on community participation, Indigenous and community rights, and local governance alongside the technical remediation problem.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">SV</span><div><h4 class="sjv-person-name">Saurav Vinod</h4><p class="sjv-person-role">3Sixty · legal, CSR and mining-governance perspective</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Legal panel</span><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Discussed the MMDR Act and its implications for mining players, including coal; questioned accountability and profit incentives in government-run mining; discussed CSR standardisation and absolute liability; asked how informed consent and tribal and land rights operate within the legal framework; and raised the debate between nationalisation and private-company rights.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">Pushed us to examine mining law, liability, accountability, consent and regulatory structures, rather than treat remediation only as a technical problem.</p></div>
+</article>
+</div>
+<div class="sjv-callout sjv-callout-why" role="note"><p class="sjv-callout-title">What the panel changed</p><p>The panel changed the question we ask of Sanjeevani. Even a promising biological technology cannot, by itself, decide who is responsible for abandoned mine waste, how restoration is funded, how communities take part in decisions, or how environmental obligations are enforced.</p>
+<p>The warning that bioremediation or CSR should not excuse a company’s environmental harm applies directly to us: a moss that cleans up after pollution could be held up as a reason to pollute. We take it as a test for how we describe Sanjeevani: as working alongside a company’s obligations, never in place of them. It fits the advice we received from Dr. Raghavan Gopalan to position Sanjeevani as supplementary rather than a replacement (<a href="#sjv-ch5">Chapter 5</a>).</p></div>
+<h3 id="sjv-health-panel">The health panel</h3>
+<p>To understand what exposure actually does to people, we put our questions to occupational-health specialists: Dr. Ravi Babu K, Scientist-E at the ICMR-NIOH Regional Occupational Health Centre (Southern), Bengaluru, whose research covers biochemical toxicity in occupational exposure and biomarkers of exposure and response; and Dr. Shubhangi Pingle, who answered our questions in writing. Across these consultations, four lessons stood out.</p>
+<ol><li><strong>‘Heavy metals’ are not one hazard.</strong> Lead can affect the central and peripheral nervous systems, blood formation, cardiovascular health, kidneys, bones and reproductive health, and it interferes with an enzyme involved in haemoglobin synthesis. Cadmium accumulates in the kidney’s tubules, disrupts calcium metabolism and damages lung tissue when inhaled. For chromium the chemical form matters: hexavalent chromium, Cr(VI), is more hazardous than trivalent chromium, Cr(III), with respiratory and skin effects and carcinogenic and mutagenic concerns. Nickel causes skin sensitisation and allergic contact dermatitis, and inhaled nickel dust or fumes may contribute to respiratory illness and certain cancers. Oxidative stress and the disruption of cellular processes through ionic mimicry or displacement are key mechanisms.</li><li><strong>Exposure and effect are measured differently.</strong> Biomarkers of exposure show that a person has been exposed: for example lead in whole blood for current exposure, or in teeth or bone for cumulative exposure; cadmium in blood and urine; chromium and nickel in urine. Effect biomarkers, such as urinary proteins and enzymes linked to cadmium’s kidney effects, show biological change. Choosing and interpreting them is work for qualified occupational-health professionals.</li><li><strong>Contamination, exposure and illness are different questions.</strong> Finding metals in the environment does not tell you how much a person has absorbed, and environmental sampling alone cannot establish a worker’s exposure or diagnose a health effect.</li><li><strong>Prevention comes in layers.</strong> Administrative controls (job rotation, training, housekeeping, maintenance), engineering controls (ventilation, isolation, enclosure), personal protective equipment and workplace hygiene are not interchangeable; the right mix depends on the site and its exposure assessment.</li></ol>
+<div class="sjv-callout sjv-callout-changed" role="note"><p class="sjv-callout-title">What the health panel changed</p><ul><li>We widened Sanjeevani’s definition of impact to include the people who work in or live near affected areas, not only the land.</li><li>We do not claim that moss treatment prevents disease or reduces worker exposure. Such a claim would need measurements we do not have.</li><li>We treat exposure pathways separately: dust and airborne particles, contaminated soil and water, and direct contact can need different controls.</li><li>We present Sanjeevani as complementary to workplace controls, environmental monitoring and medical surveillance, never as a replacement for them.</li><li>The panel gave us a health-based reason to care about monitoring heavy-metal exposure and protecting workers and communities alongside remediation.</li></ul></div>
+<div class="sjv-callout sjv-callout-note" role="note"><p class="sjv-callout-title">A point that stayed with us</p><p>Dr. Sruti Mohapatra, a disability-rights advocate and founder of Swabhiman, agreed with our concerns for persons with disabilities and for victims of occupational hazards in mining, and noted that only death counts are taken into account. Beside what the health panel taught us about chronic harm to kidneys, bones and lungs, her point is hard to forget: harm that does not kill is easily left uncounted. We have not yet turned it into a concrete change in Sanjeevani, and we list it among our open questions (<a href="#sjv-impacts">Looking back</a>). Our work with her is on our <a data-wiki="inclusivity" href="inclusivity">Inclusivity</a> page.</p></div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-ch3" aria-labelledby="sjv-ch3-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 3</p><h2 id="sjv-ch3-h">Going to the mines</h2><p class="sjv-lead">Reading and listening were not enough, so we went to mining sites ourselves, and came back with a health question, a decision about scope, and a lesson in handling claims.</p><div class="sjv-body"><h3 id="sjv-sukinda">Sukinda Valley and South Kaliapani: Odisha Mining Corporation</h3>
+<p>We visited Odisha Mining Corporation’s mines in the Sukinda Valley and at South Kaliapani, the valley whose chromium contamination we had read about, and engaged with OMC at its headquarters. The visit grounded our questions about mining-related pollution, worker safety, waste management and land restoration in a real site.</p>
+<figure class="sjv-photo sjv-photo-wide" id="sjv-photo-sukinda"><!-- PHOTO SLOT sukinda. To add your photo: upload it with the iGEM Uploads tool, then replace the whole div below with: <img class="sjv-photo-img" src="PASTE THE UPLOADED FILE ADDRESS HERE" alt="Team Sanjeevani standing at the Sukinda Valley mine site in Odisha" loading="lazy"> Use only photos you took or have permission to use. Photos of students need consent, and no one who received a menstrual kit should be identifiable. --><div class="sjv-photo-slot" role="img" aria-label="Photo to come: Team Sanjeevani at the Sukinda Valley mines, Odisha."><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="sjv-photo-hint">Photo to add</span></div><figcaption>Team Sanjeevani at the Sukinda Valley mines, Odisha.</figcaption></figure>
+<div class="sjv-callout sjv-callout-why" role="note"><p class="sjv-callout-title">Women in the mines</p><p>The women on our team went into the mines and inspected for themselves how the tailings are managed. We note this because Indian law long restricted women’s work in mines. The Mines Act, 1952 barred women from being employed in any part of a mine below ground, and above ground outside the hours of 6 am to 7 pm.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup> Only in 2019 did a notification of the Ministry of Labour and Employment open below-ground technical, supervisory and managerial work to women during the day, and above-ground work, including in opencast mines, at night, with their written consent and safeguards.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></p></div>
+<h3>Chatrapur: Indian Rare Earths Limited (IREL)</h3>
+<p>At IREL’s OSCOM operations in Chatrapur, where minerals are mined from beach sands, we engaged with Suraj Prakash Sahu, CVR Murty, Ashish Kulshreshta and Pramod Kumar Mishra. The visit made us consider resource extraction, coastal environments and community benefits together, rather than reduce the issue to a simple opposition between mining and conservation. It also gave our project a health dimension: at Chatrapur we came across a reported link between the area and kidney disease.</p>
+<section class="sjv-ledger" aria-labelledby="sjv-ledger-title">
+<h4 class="sjv-ledger-title" id="sjv-ledger-title">When two claims collided</h4>
+<div class="sjv-ledger-claims">
+<div class="sjv-claim"><span class="sjv-claim-tag">Claim A</span><p class="sjv-claim-src">From our engagement at Chatrapur</p><p class="sjv-claim-text">A reported link between the area and kidney disease.</p></div>
+<div class="sjv-ledger-vs" aria-hidden="true">vs</div>
+<div class="sjv-claim"><span class="sjv-claim-tag">Claim B</span><p class="sjv-claim-src">From Dr. Raghavan Gopalan, ARCI</p><p class="sjv-claim-text">Sand mining is not toxic to human health.</p></div>
+</div><div class="sjv-ledger-cols">
+<div><h5>How we handled it</h5><p>The journalist Sandhya Ravishankar’s fact-verification method made us question and verify facts rather than repeat them. Our health panel explained why neither claim could settle the matter: the presence of contamination, the degree of human exposure and the presence of illness are related but different questions, and environmental sampling alone cannot establish exposure or diagnose disease.</p></div>
+<div><h5>What we concluded</h5><ul><li>Our project has not measured exposure or health outcomes at Chatrapur, so we have not verified either claim.</li><li>We do not say that beach-sand mining at Chatrapur causes kidney disease, and we do not say that it is harmless.</li><li>We do not use the kidney-disease link as evidence that Sanjeevani is needed there.</li><li>Settling the question would need exposure and clinical evidence, gathered and interpreted by qualified health professionals.</li></ul></div>
+</div><p class="sjv-ledger-after">It changed how we write about health on this wiki: each health statement names its source and the kind of evidence behind it.</p></section>
+<h3>Tata Steel and Tata Steel Foundation: a decision to say no</h3>
+<p>Tata Steel and the Tata Steel Foundation proposed a funded side-project that was not the problem we had set out to solve. We declined it, to protect our core timeline and keep our focus on that problem.</p>
+<figure class="sjv-photo sjv-photo-wide" id="sjv-photo-tata-steel"><!-- PHOTO SLOT tata-steel. To add your photo: upload it with the iGEM Uploads tool, then replace the whole div below with: <img class="sjv-photo-img" src="PASTE THE UPLOADED FILE ADDRESS HERE" alt="Team Sanjeevani with Tata Steel&#x27;s raw materials leadership in Jamshedpur" loading="lazy"> Use only photos you took or have permission to use. Photos of students need consent, and no one who received a menstrual kit should be identifiable. --><div class="sjv-photo-slot" role="img" aria-label="Photo to come: Team Sanjeevani with Tata Steel’s raw materials leadership in Jamshedpur, Jharkhand, where Tata Steel made its first steel in 1912."><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="sjv-photo-hint">Photo to add</span></div><figcaption>Team Sanjeevani with Tata Steel’s raw materials leadership in Jamshedpur, Jharkhand, where Tata Steel made its first steel in 1912.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></figcaption></figure>
+<h3>Other conversations in the field</h3>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Table">
+<table class="sjv-table">
+<thead><tr><th scope="col">Who</th><th scope="col">What we heard</th><th scope="col">Where it stands</th></tr></thead><tbody>
+<tr><th scope="row">Shri Bibhuti Bhusan Jena, Minister of Mining, Odisha</th><td>Recognised the potential of the idea and how central Odisha, as a mining hub, is to the project.</td><td>No project change recorded yet.</td></tr>
+<tr><th scope="row">Mining and Geology Department, Kerala</th><td>We visited a quarry and ore-processing site.</td><td>Open question: what it means for metal recovery and separation.</td></tr>
+<tr><th scope="row">NALCO: Chitaranjan Bisoi, Tapan Samantray</th><td>A project conversation with the mining and metals industry.</td><td>Open question: whether it changes which contaminants or sites we prioritise.</td></tr>
+<tr><th scope="row">Gram Vikas, Odisha</th><td>We learnt about fluoride in river water in industrialised parts of Odisha, including Keonjhar.</td><td>Open question: we have not yet worked out what it means for our project.</td></tr>
+</tbody></table></div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-ch4" aria-labelledby="sjv-ch4-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 4</p><h2 id="sjv-ch4-h">Paderu: a name, and a question about rice</h2><p class="sjv-lead">A district collector suggested our name and sent us to Paderu, where we learnt that arsenic in soil can reach people through the food they grow.</p><div class="sjv-body"><h3 id="sjv-name">Where our name comes from</h3>
+<p>D.K. Balaji, IAS, District Collector of Krishna district, Andhra Pradesh (district headquarters: Machilipatnam), suggested our name. Because we would be working with tribal communities, he advised a name that people could say and remember: Sanjeevani, rather than a coined name such as ‘Mosscraft’. In Indian tradition, Sanjeevani is the herb that restores life.</p>
+<p>He also connected us with the Integrated Tribal Development Agency (ITDA), Paderu, so that we could verify the problem in a tribal area. He told us that arsenic had been found in rice harvested in the Paderu region.</p>
+<h3>What we found in Paderu</h3>
+<p>In Paderu we met local people, the District Medical and Health Officer and the principal of Government Medical College, Paderu. They told us that the arsenic comes from the soil itself, and reaches people through the rice grown in it. Treatment is offered locally, but some people do not take it because they do not trust the medicine.</p>
+<p>This matched what we had read. Arsenic occurs in soil through natural processes as well as human activity, and rice is especially exposed because it is usually grown in flooded fields, which make arsenic in the soil more soluble and mobile, so the plants take up more of it.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></p>
+<div class="sjv-callout sjv-callout-honest" role="note"><p class="sjv-callout-title">What we can and cannot say</p><ul><li>We have not measured arsenic in Paderu’s soil, water or rice, and we could not find published measurements for the region. We report what we were told, and by whom.</li><li>We do not say that anyone’s illness in Paderu is caused by arsenic.</li></ul></div>
+<h3>The question we brought back</h3>
+<p>We came back with a question about arsenic in rice. It took us to Dr. Sudhakar Srivastava of Banaras Hindu University, whose group studies biochar that reduces the arsenic rice plants take up, and that conversation gave Sanjeevani its end-of-life plan (<a href="#sjv-ch6">Chapter 6</a>).</p>
+<p>Paderu also became the centre of our education work. With ITDA Paderu we ran an online programme and then an on-the-ground programme for school students, described on our <a data-wiki="education" href="education">Education</a> page.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-ch5" aria-labelledby="sjv-ch5-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 5</p><h2 id="sjv-ch5-h">From ‘is it a problem?’ to ‘how do we solve it?’</h2><p class="sjv-lead">Convinced the problem was real, we went back to the science: which moss to use, how to grow it, and how to handle it responsibly.</p><div class="sjv-body"><p>Sanjeevani explores an engineered, moss-based approach to remediating heavy-metal-contaminated mine waste. Each of the people below shaped how we approach that work.</p>
+<h3>The people who shaped the design</h3>
+<div class="sjv-people sjv-people-2">
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">MN</span><div><h4 class="sjv-person-name">Dr. Manju C. Nair</h4><p class="sjv-person-role">University of Calicut · bryophyte and moss expertise</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Ideation</span><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Guidance on bryophyte identification, habitat diversity, and the importance of substrate characteristics in moss growth.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">We use it to guide moss selection and field and site considerations.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">AK</span><div><h4 class="sjv-person-name">Dr. Anjan Banerjee, Dr. Amey Bhide and Dr. Ishfaq Khan</h4><p class="sjv-person-role">IISER Pune · academic peers outside IISER TVM</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Construct / Design</span><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">They shared their moss protocol with us.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">Their 1-day moss protocol replaced our 2-day protocol.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">VS</span><div><h4 class="sjv-person-name">Mr. Vinay Sahu</h4><p class="sjv-person-role">Bryophytes · met through the SynBio Conclave organised by iGEM IISER TVM</p></div></header>
+<div class="sjv-chips"><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">We put our questions about bryophytes to him, and he answered with questions of his own. Why not go with native species? Why not transfer our work into a native species? What exactly is the problem with handling bryophytes? He also gave us guidance on handling mosses.</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">His questions met two things we had already read: a new species could destroy or hybridise native flora and fauna (<a href="#sjv-ch1">Chapter 1</a>), and India’s mine-restoration conditions already ask for hyperaccumulating local flora. The same idea, working with what is native, runs through our future plans on our <a data-wiki="proposed-implementation" data-hash="#sjv-future" href="proposed-implementation#sjv-future">Proposed Implementation</a> page.</p></div>
+</article>
+<article class="sjv-person">
+<header class="sjv-person-head"><span class="sjv-avatar" aria-hidden="true">RG</span><div><h4 class="sjv-person-name">Dr. Raghavan Gopalan</h4><p class="sjv-person-role">ARCI · technical and industry expert, critical metals and rare-earth elements</p></div></header>
+<div class="sjv-chips"><span class="sjv-stage" title="Stage label from our interaction log">Anticipate / Reflect</span><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span></div>
+<p class="sjv-label">What we heard</p><p class="sjv-person-text">Shared an insight into the midstream bottleneck for rare-earth elements (REE).</p>
+<div class="sjv-person-changed"><p class="sjv-label">What it changed</p><p class="sjv-person-text">It reframed Sanjeevani as supplementary rather than a replacement, which shapes how we describe its scope and where it fits.</p></div>
+</article>
+</div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-ch6" aria-labelledby="sjv-ch6-h"><div class="sjv-wrap"><p class="sjv-kicker">Chapter 6</p><h2 id="sjv-ch6-h">After the harvest: what happens to the moss?</h2><p class="sjv-lead">A moss that pulls metals out of soil becomes a concentrated, metal-laden waste. If we stopped at harvest we would only have moved the pollution.</p><div class="sjv-body"><p>The usual fates of such biomass are poor: landfill keeps the hazard, while open burning releases carbon as CO₂ and can volatilise metals.<sup class="sjv-cite"><a href="#sjv-ref-6" aria-label="Reference 6">6</a></sup></p>
+<p>The question we brought back from Paderu took us to Dr. Sudhakar Srivastava of the Institute of Environment and Sustainable Development, Banaras Hindu University, whom we met when he spoke at the SynBio Conclave organised by iGEM IISER TVM. His group works on biochar made from waste. In a 2026 study, biochar from sweet-lemon and pomegranate peel reduced arsenic in rice shoots by 30 to 37% and in roots by 14 to 27%, while banana-peel biochar was less effective and raised root arsenic: the feedstock mattered.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></p>
+<p>Talking with him gave us the idea of turning our own harvested moss into biochar. He explained how metal-laden moss could be handled as a biochar product, and how that product could be redistributed. We then built a plan from the literature and discussed it with him.</p>
+<div class="sjv-callout sjv-callout-plan" role="note"><p class="sjv-callout-title">Our plan in brief (not yet tested on moss)</p><p>Dry the harvested moss and slow-pyrolyse it at 400 to 500 °C into biochar, a stable carbon solid; at that temperature, metals such as copper and iron stay in the char, while volatile cadmium must be caught from the off-gas.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> Test every batch for leaching, metal content and surface area, and send each batch to one use by its results: a sorbent for metal-laden water, metal recovery, or, only if it passes the leaching test, soil use on non-food land. Pyrolysis would also end the life of the moss, because no living cells survive 400 to 500 °C in an oxygen-free retort.</p></div>
+<div class="sjv-callout sjv-callout-why" role="note"><p class="sjv-callout-title">What our panels added to the plan</p><ul><li>Who is legally responsible for the site, and what happens if the operator disappears?</li><li>Have the people who live and work there been informed, and given a say?</li><li>Who could be exposed at each step, and through which pathway?</li><li>Is the clean-up adding to a company’s obligations, or being used to excuse them?</li></ul>
+<p>We do not have full answers yet. Any honest deployment would have to answer them first.</p></div>
+<p>The full plan, from who would use Sanjeevani and how, to process settings, safety, life-cycle assessment, market, roadmap and our future prospects, is on its own page.</p>
+<div class="sjv-links sjv-links-1">
+<a class="sjv-linkcard" data-wiki="proposed-implementation" href="proposed-implementation"><span class="sjv-linkcard-t">Proposed Implementation <span aria-hidden="true">→</span></span><span class="sjv-linkcard-d">Who would use Sanjeevani, the moss-to-biochar plan in full, safety and regulation, market and roadmap, and where we go next.</span></a>
+</div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-impacts" aria-labelledby="sjv-impacts-h"><div class="sjv-wrap"><p class="sjv-kicker">Looking back</p><h2 id="sjv-impacts-h">What could go right, what could go wrong, and what we will not claim</h2><p class="sjv-lead">We tried to anticipate both sides of Sanjeevani’s impact, including ways it could be misused, and we list the questions we have not closed.</p><div class="sjv-body"><div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Hopes and risks we identified, and our response to each.">
+<table class="sjv-table sjv-table-impacts">
+<caption>Hopes and risks we identified, and our response to each.</caption>
+<thead><tr><th scope="col"><span class="sjv-sr">Type</span></th><th scope="col">Impact</th><th scope="col">Who it touches</th><th scope="col">How we respond</th></tr></thead><tbody>
+<tr><td><span class="sjv-kind sjv-kind-hope">Hope</span></td><td>Restoring degraded mine land and reducing land degradation (SDG 15).</td><td>Communities and ecosystems around mines.</td><td>This is our goal. It has not been demonstrated in the field.</td></tr>
+<tr><td><span class="sjv-kind sjv-kind-hope">Hope</span></td><td>A defined end of life for contaminated biomass, instead of landfill or burning.</td><td>Site owners and nearby residents.</td><td>Our proposed biochar route (<a href="#sjv-ch6">Chapter 6</a>), not yet tested on moss.</td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>An engineered organism released into the environment could destroy or hybridise native flora and fauna.</td><td>Local ecosystems.</td><td>None of our work releases moss into the environment. Any field use would need regulatory approval first, and our plan harvests the moss before it can spread and ends its life by pyrolysis.</td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>Remediation used to excuse pollution.</td><td>Mining-affected communities.</td><td>We describe Sanjeevani as supplementary to a company’s obligations, never a substitute for them.</td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>Overstated health benefits.</td><td>Workers and residents.</td><td>No health claim without measurements (<a href="#sjv-ch2">Chapter 2</a>).</td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>Cadmium escaping as vapour during pyrolysis.</td><td>Workers and neighbours of a pyrolysis unit.</td><td>Keep to 400 to 500 °C and scrub the off-gas.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>Heavy metals or polycyclic aromatic hydrocarbons persisting in the biochar.</td><td>Farmland and food.</td><td>No char on soil without a leaching test, and only on non-food land.<sup class="sjv-cite"><a href="#sjv-ref-6" aria-label="Reference 6">6</a></sup></td></tr>
+<tr><td><span class="sjv-kind sjv-kind-risk">Risk</span></td><td>Moss and char classed as hazardous waste.</td><td>Operators and transporters.</td><td>Treat both as hazardous until tests show otherwise.</td></tr>
+</tbody></table></div>
+<h3 id="sjv-open">Questions we have not closed</h3>
+<ul><li><strong>Chatrapur.</strong> Whether beach-sand mining there affects kidney health needs exposure and clinical evidence that we cannot produce ourselves.</li><li><strong>Paderu.</strong> How much arsenic is in the region’s soil and rice, and what would help people trust the treatment they are offered. We have measured neither.</li><li><strong>Uncounted harm.</strong> Dr. Sruti Mohapatra’s point that only deaths are counted: what should it mean for how Sanjeevani measures impact?</li><li><strong>Other contaminants.</strong> Gram Vikas told us about fluoride in river water in industrialised Odisha. We have not worked out what, if anything, it means for a heavy-metal project.</li><li><strong>Moss in the field.</strong> We do not yet know moss biomass yield per hectare or its metal load at harvest; both set the scale of our implementation plan.</li></ul>
+<p><strong>Limits we state openly.</strong> Mosses reach only contaminants near the soil surface. We have no data yet on biochar made from moss. And we cannot say that Sanjeevani improves anyone’s health, so we do not.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-beyond" aria-labelledby="sjv-beyond-h"><div class="sjv-wrap"><p class="sjv-kicker">Beyond the lab</p><h2 id="sjv-beyond-h">Education, inclusion and implementation</h2><p class="sjv-lead">Some of what we heard pointed beyond the design of Sanjeevani. Following iGEM’s guidance, we document those activities on their own pages.</p><div class="sjv-body"><div class="sjv-links">
+<a class="sjv-linkcard" data-wiki="education" href="education"><span class="sjv-linkcard-t">Education <span aria-hidden="true">→</span></span><span class="sjv-linkcard-d">A three-phase programme with ITDA Paderu: more than 7,000 students online and more than 70,000 school students on the ground, with a laboratory and curriculum planned. Also KISS, Kalahandi and Ghodegaon, Maharashtra.</span></a>
+<a class="sjv-linkcard" data-wiki="inclusivity" href="inclusivity"><span class="sjv-linkcard-t">Inclusivity <span aria-hidden="true">→</span></span><span class="sjv-linkcard-d">Disability inclusion with Swabhiman and Dr. Sruti Mohapatra; menstrual hygiene kits with Odisha Rising Foundation, distributed by our team; and women in mining.</span></a>
+<a class="sjv-linkcard" data-wiki="proposed-implementation" href="proposed-implementation"><span class="sjv-linkcard-t">Proposed Implementation <span aria-hidden="true">→</span></span><span class="sjv-linkcard-d">Who would use Sanjeevani and how, the full moss-to-biochar plan, safety, market, roadmap and our future prospects.</span></a>
+</div></div></div></section>
+<section class="sjv-section" id="sjv-future-teams" aria-labelledby="sjv-future-teams-h"><div class="sjv-wrap"><p class="sjv-kicker">For future teams</p><h2 id="sjv-future-teams-h">What we would pass on</h2><p class="sjv-lead">Our method is reusable: start from the question, log what each conversation changed, and keep claims apart from evidence.</p><div class="sjv-body"><ol><li>Ask whether it is really a problem before asking how to solve it.</li><li>Read the law early. It shows where a living solution would be regulated, and where the rules are silent.</li><li>Invite people who may disagree with you. The sharpest point our legal panel made was a warning about technologies like ours.</li><li>Go where people live with the problem. Paderu gave us a question that no paper had.</li><li>Keep claims and evidence apart, and name the source of every claim.</li><li>Plan the end of your organism’s life, not only its job.</li><li>A ‘no’ can be a good project decision.</li><li>Log every conversation with what it changed, and count only what you can name.</li></ol>
+<h3 id="sjv-log">Our interaction log, and a template you can reuse</h3>
+<p>The table below lists every interaction this page draws on. The template uses the seven columns from our own tracker, with one real entry as an example.</p>
+<div class="sjv-downloads"><button type="button" class="sjv-btn" data-sjv-csv="template">Download the template (CSV)</button><button type="button" class="sjv-btn sjv-btn-ghost" data-sjv-csv="log">Download this log (CSV)</button></div>
+<details class="sjv-details"><summary>Show the full interaction log (23 entries)</summary><div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Interaction log"><table class="sjv-table sjv-table-log" id="sjv-log-table"><caption>Every interaction this page draws on. Status: ✓ Changed the project · ◆ Shaped our approach · • Context · ○ Open question</caption><thead><tr><th scope="col">Who</th><th scope="col">Profile</th><th scope="col">Stage (from our log)</th><th scope="col">What we heard</th><th scope="col">What it changed / where it stands</th></tr></thead><tbody><tr><th scope="row">D.K. Balaji, IAS</th><td>District Collector, Krishna district (headquarters Machilipatnam), Andhra Pradesh</td><td>Not in our tracker yet</td><td>Suggested our name, Sanjeevani, because we would be working with tribal communities; connected us with ITDA Paderu, telling us that arsenic had been found in rice harvested in the Paderu region.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Our name, and the visit to Paderu that led to our biochar plan (Chapters 4 and 6).</td></tr><tr><th scope="row">Local people, the District Medical and Health Officer, and the principal of Government Medical College, Paderu</th><td>Paderu, Alluri Sitharama Raju district, Andhra Pradesh</td><td>Not in our tracker yet</td><td>The arsenic comes from the soil itself and reaches people through the rice grown in it; treatment is offered locally, but some people do not take it because they do not trust the medicine.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>We took the question of arsenic in rice to Dr. Sudhakar Srivastava, which gave us the idea of turning harvested moss into biochar.</td></tr><tr><th scope="row">Dr. Anjan Banerjee, Dr. Amey Bhide, Dr. Ishfaq Khan</th><td>IISER Pune; academic peers outside IISER TVM</td><td>Construct / Design</td><td>Shared their moss protocol.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Their 1-day moss protocol replaced our 2-day protocol.</td></tr><tr><th scope="row">Dr. Raghavan Gopalan</th><td>ARCI; technical and industry expert, critical metals and rare-earth elements</td><td>Anticipate / Reflect</td><td>Insight into the midstream bottleneck for rare-earth elements; told us that sand mining is not toxic to human health.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Reframed Sanjeevani as supplementary rather than a replacement. His health statement is recorded as a claim (Chapter 3).</td></tr><tr><th scope="row">Dr. Manju C. Nair</th><td>University of Calicut; bryophyte and moss expertise</td><td>Ideation</td><td>Bryophyte identification, habitat diversity and the importance of substrate characteristics in moss growth.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>Guides our moss selection and site considerations.</td></tr><tr><th scope="row">Mr. Vinay Sahu</th><td>Bryophytes; met through the SynBio Conclave</td><td>Not in our tracker yet</td><td>Asked why we do not use native species or transfer our work into one, and what exactly the problem with handling bryophytes is; gave guidance on handling mosses.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>Raised native species as a design question; a concrete project change is not yet recorded.</td></tr><tr><th scope="row">Dr. Sudhakar Srivastava</th><td>Institute of Environment and Sustainable Development, Banaras Hindu University; biochar</td><td>Not in our tracker yet</td><td>His group's work on biochar that reduces arsenic in rice; how our metal-laden moss could be handled as a biochar product, and how that product could be redistributed.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Gave us the idea of turning harvested moss into biochar; informed our proposed end-of-life route (Chapter 6).</td></tr><tr><th scope="row">Satwik Sathpathy</th><td>NLU Odisha; legal and environmental-law perspective</td><td>Legal &amp; Mining Environmental Justice Panel</td><td>Ecological damage associated with mining, including contamination of water systems and river tributaries.</td><td><span class="sjv-status sjv-status-context"><span aria-hidden="true">•</span> Context</span><br>Background for the panel's discussion; no project change recorded.</td></tr><tr><th scope="row">Eesha Khandelwal</th><td>Symbiosis; legal and environmental-justice perspective</td><td>Legal &amp; Mining Environmental Justice Panel</td><td>Economic benefits of mining, negative externalities and the resource-curse framework.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>We frame mining as a trade-off between economic benefits and environmental and social costs.</td></tr><tr><th scope="row">Katlego Kgasi</th><td>South Africa; mining and environmental-justice perspective</td><td>Legal &amp; Mining Environmental Justice Panel</td><td>Conflicts of interest, the financial power of mining companies, barriers to participation, international interests, community agency; bioremediation or CSR should not excuse environmental harm.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>Strengthened our focus on power asymmetry, community agency, resource rights and corporate accountability.</td></tr><tr><th scope="row">Grizelda Mayo-Anda</th><td>ELAC, Philippines; environmental and community-rights law</td><td>Legal &amp; Mining Environmental Justice Panel</td><td>Local community advocacy, a case-by-case approach, safeguards for Indigenous peoples under Philippine law, community-level mechanisms.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>Strengthened our focus on community participation, Indigenous and community rights, and local governance.</td></tr><tr><th scope="row">Saurav Vinod</th><td>3Sixty; legal, CSR and mining-governance perspective</td><td>Legal &amp; Mining Environmental Justice Panel</td><td>The MMDR Act, accountability in government-run mining, CSR standardisation, absolute liability, informed consent and tribal and land rights, nationalisation versus private-company rights.</td><td><span class="sjv-status sjv-status-shaped"><span aria-hidden="true">◆</span> Shaped our approach</span><br>Pushed us to examine liability, accountability, consent and regulation, not only the technical problem.</td></tr><tr><th scope="row">Dr. Ravi Babu K</th><td>ICMR-NIOH Regional Occupational Health Centre (Southern), Bengaluru; Scientist-E</td><td>Health / Occupational Exposure Consultation</td><td>Health effects of prolonged exposure to Pb, Cd, Cr and Ni; oxidative stress and ionic mimicry; exposure and effect biomarkers; layered exposure controls.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Widened our definition of impact; no health claims without measurements; Sanjeevani presented as complementary to workplace controls.</td></tr><tr><th scope="row">Dr. Shubhangi Pingle</th><td>Written consultation on occupational exposure to heavy metals</td><td>Not in our tracker yet</td><td>Metal-specific toxicity, biomarkers of exposure and effect, and layered risk reduction.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Same changes as above: impact widened, health claims kept to the evidence.</td></tr><tr><th scope="row">Indian Rare Earths Limited (IREL), OSCOM Chatrapur: Suraj Prakash Sahu, CVR Murty, Ashish Kulshreshta, Pramod Kumar Mishra</th><td>Mineral-sands industry</td><td>Anticipate</td><td>Engagement at Chatrapur, where we came across a reported link between the area and kidney disease.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Gave the project a health dimension; the claim is handled as described in Chapter 3.</td></tr><tr><th scope="row">Odisha Mining Corporation: Sukinda Valley and South Kaliapani mines</th><td>Mine-site stakeholders</td><td>Anticipate / Field Iteration</td><td>Mine visit and headquarters engagement; site context documented; the women on our team inspected how tailings are managed.</td><td><span class="sjv-status sjv-status-context"><span aria-hidden="true">•</span> Context</span><br>Grounded our field questions; no design change recorded yet.</td></tr><tr><th scope="row">Tata Steel and Tata Steel Foundation</th><td>Mining industry and community foundation</td><td>Act / Reflect</td><td>Proposed a funded side-project outside our core problem.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>We declined, to protect our core timeline.</td></tr><tr><th scope="row">Sandhya Ravishankar</th><td>Journalist; fact-verification perspective</td><td>Anticipate</td><td>Her fact-verification method.</td><td><span class="sjv-status sjv-status-changed"><span aria-hidden="true">✓</span> Changed the project</span><br>Made us question and verify facts; we keep claims and evidence apart.</td></tr><tr><th scope="row">Shri Bibhuti Bhusan Jena</th><td>Minister of Mining, Odisha</td><td>Act / Reflect</td><td>Recognised the potential of the idea and how central Odisha, as a mining hub, is to the project.</td><td><span class="sjv-status sjv-status-context"><span aria-hidden="true">•</span> Context</span><br>No project change recorded yet.</td></tr><tr><th scope="row">Mining and Geology Department, Kerala</th><td>Government mining and geology department</td><td>Problem-Driven Design</td><td>Quarry and ore-processing visit.</td><td><span class="sjv-status sjv-status-open"><span aria-hidden="true">○</span> Open question</span><br>What it means for metal recovery and separation.</td></tr><tr><th scope="row">NALCO: Chitaranjan Bisoi, Tapan Samantray</th><td>Mining and metals industry</td><td>Problem-Driven Design</td><td>A project conversation.</td><td><span class="sjv-status sjv-status-open"><span aria-hidden="true">○</span> Open question</span><br>Whether it changes which contaminants or sites we prioritise.</td></tr><tr><th scope="row">Gram Vikas</th><td>Community development organisation, Odisha</td><td>Engage</td><td>Fluoride in river water in industrialised parts of Odisha, including Keonjhar.</td><td><span class="sjv-status sjv-status-open"><span aria-hidden="true">○</span> Open question</span><br>We have not yet worked out what it means for our project.</td></tr><tr><th scope="row">Dr. Sruti Mohapatra</th><td>Founder of Swabhiman; disability-rights advocate</td><td>Engage</td><td>Agreed with our concerns for persons with disabilities and victims of occupational hazards in mining; noted that only death counts are taken into account.</td><td><span class="sjv-status sjv-status-open"><span aria-hidden="true">○</span> Open question</span><br>What it should mean for how Sanjeevani measures impact.</td></tr></tbody></table></div></details></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section sjv-section-refs" id="sjv-references" aria-labelledby="sjv-references-h"><div class="sjv-wrap"><p class="sjv-kicker">Sources</p><h2 id="sjv-references-h">References</h2><ol class="sjv-refs"><li id="sjv-ref-1">Hou D. et al. (2025). Global soil pollution by toxic metals threatens agriculture and human health. <em>Science</em> 388, 316-321. doi:10.1126/science.adr5214</li><li id="sjv-ref-2">Pathak S.K., Singh S., Srivastava S. (2026). Revealing the efficacy of fruit peel derived biochar in reducing arsenic accumulation in rice (<em>Oryza sativa</em> L.). <em>Land Degradation &amp; Development</em> 37, 10063-10078. doi:10.1002/ldr.70753</li><li id="sjv-ref-3">The Mines Act, 1952, section 46 (Employment of women). Text of the Act: https://www.thc.nic.in/Central%20Governmental%20Acts/Mines%20Act,%201952.pdf</li><li id="sjv-ref-4">Ministry of Labour and Employment, Government of India. Notification S.O. 506(E), 29 January 2019, issued under section 83(1) of the Mines Act, 1952 (details as reported by SCC Online, 4 February 2019: https://www.scconline.com/blog/post/2019/02/04/labour-employment-ministry-notifies-rules-to-allow-employment-of-women-in-mines/). Summarised by the Press Information Bureau, “Working Women”, release ID 1703243, 8 March 2021: https://labour.gov.in/sites/default/files/pib1703243.pdf</li><li id="sjv-ref-5">Tata Steel. Jamshedpur brochure (company founded 26 August 1907; first steel produced 16 February 1912; Sakchi renamed Jamshedpur in 1919). https://www.tatasteel.com/media/6085/jamshedpur-brochure.pdf</li><li id="sjv-ref-6">Yaashikaa P.R., Senthil Kumar P., Varjani S., Saravanan A. (2020). A critical review on the biochar production techniques, characterization, stability and applications for circular bioeconomy. <em>Biotechnology Reports</em> 28, e00570. doi:10.1016/j.btre.2020.e00570</li><li id="sjv-ref-7">He J., Strezov V. et al. (2019). Effect of temperature on heavy metal(loid) deportment during pyrolysis of <em>Avicennia marina</em> biomass obtained from phytoremediation. <em>Bioresource Technology</em> 278, 214-222. doi:10.1016/j.biortech.2019.01.101</li></ol><h3>Laws and regulations we read</h3><h4>India</h4><ul class="sjv-laws"><li>Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016</li><li>Mineral Conservation and Development Rules, 2017 (Indian Bureau of Mines)</li><li>Water (Prevention and Control of Pollution) Act, 1974</li><li>Fly ash utilisation rules, Ministry of Environment, Forest and Climate Change, 2021</li><li>Environmental Impact Assessment Notification, Ministry of Environment, Forest and Climate Change (as amended)</li></ul><h4>Other jurisdictions</h4><ul class="sjv-laws"><li>United States: Resource Conservation and Recovery Act, 42 U.S.C. § 6921(b)(3)(A)(ii) (the Bevill Amendment); Bureau of Land Management Surface Management Regulations, 43 CFR § 3809.420; Toxic Substances Control Act, 40 CFR Part 725</li><li>Canada: Metal and Diamond Mining Effluent Regulations, SOR/2002-222 (Fisheries Act); Canadian Environmental Protection Act, 1999, s. 106</li><li>European Union: Directive 2006/21/EC (management of waste from extractive industries); Directive 2001/18/EC (deliberate release of GMOs)</li><li>Brazil: Lei nº 14.066/2020 (amending the National Dam Safety Policy, Lei nº 12.334/2010); Lei nº 11.105/2005 (Biosafety Law, CTNBio)</li><li>Australia: Environmental Protection Act 1994 (Queensland); Gene Technology Act 2000 (Commonwealth)</li><li>Chile: Ley nº 20.551 (closure of mining sites and facilities), 2011</li><li>Japan: Water Pollution Prevention Act, 1970 (Act No. 138 of 1970)</li></ul><div class="sjv-about"><h3>About this page</h3><p>Statements from the people we consulted are summarised from our notes and written records; they are not verbatim quotations. We thank everyone named on this page for their time and candour.</p><!-- AI-use disclosure (iGEM 2026 Judge Handbook, page 95). Remove the comment markers around the next line ONLY after the team has checked every statement on this page:
+<p class="sjv-ai-note">How this page was written: Team Sanjeevani wrote this page from our interaction log, reports and research notes. We used an AI assistant to help structure and edit the text, and every statement, name and source was checked by the team against our own records.</p>
+--></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+</div>
+<script type="application/json" id="sjv-data">{"template": {"file": "sanjeevani-ihp-tracker-template.csv", "head": ["Contact / Stakeholder", "Profile / Organisation", "IHP Stage / Interaction", "Status", "What They Said / What Happened", "Feedback / What We Need to Confirm", "Project Impact / Theme"], "rows": [["Tata Steel + Tata Steel Foundation", "Mining/industry + community foundation", "Act / Reflect", "Confirmed", "Declined funded side-project to protect the core timeline.", "Shows a practical decision about scope and resources.", "Project management / reflection"]]}, "log": {"file": "sanjeevani-ihp-interaction-log.csv", "head": ["Who", "Profile", "Stage (from our log)", "What we heard", "What it changed / where it stands"], "rows": [["D.K. Balaji, IAS", "District Collector, Krishna district (headquarters Machilipatnam), Andhra Pradesh", "Not in our tracker yet", "Suggested our name, Sanjeevani, because we would be working with tribal communities; connected us with ITDA Paderu, telling us that arsenic had been found in rice harvested in the Paderu region.", "Changed the project: Our name, and the visit to Paderu that led to our biochar plan (Chapters 4 and 6)."], ["Local people, the District Medical and Health Officer, and the principal of Government Medical College, Paderu", "Paderu, Alluri Sitharama Raju district, Andhra Pradesh", "Not in our tracker yet", "The arsenic comes from the soil itself and reaches people through the rice grown in it; treatment is offered locally, but some people do not take it because they do not trust the medicine.", "Changed the project: We took the question of arsenic in rice to Dr. Sudhakar Srivastava, which gave us the idea of turning harvested moss into biochar."], ["Dr. Anjan Banerjee, Dr. Amey Bhide, Dr. Ishfaq Khan", "IISER Pune; academic peers outside IISER TVM", "Construct / Design", "Shared their moss protocol.", "Changed the project: Their 1-day moss protocol replaced our 2-day protocol."], ["Dr. Raghavan Gopalan", "ARCI; technical and industry expert, critical metals and rare-earth elements", "Anticipate / Reflect", "Insight into the midstream bottleneck for rare-earth elements; told us that sand mining is not toxic to human health.", "Changed the project: Reframed Sanjeevani as supplementary rather than a replacement. His health statement is recorded as a claim (Chapter 3)."], ["Dr. Manju C. Nair", "University of Calicut; bryophyte and moss expertise", "Ideation", "Bryophyte identification, habitat diversity and the importance of substrate characteristics in moss growth.", "Shaped our approach: Guides our moss selection and site considerations."], ["Mr. Vinay Sahu", "Bryophytes; met through the SynBio Conclave", "Not in our tracker yet", "Asked why we do not use native species or transfer our work into one, and what exactly the problem with handling bryophytes is; gave guidance on handling mosses.", "Shaped our approach: Raised native species as a design question; a concrete project change is not yet recorded."], ["Dr. Sudhakar Srivastava", "Institute of Environment and Sustainable Development, Banaras Hindu University; biochar", "Not in our tracker yet", "His group's work on biochar that reduces arsenic in rice; how our metal-laden moss could be handled as a biochar product, and how that product could be redistributed.", "Changed the project: Gave us the idea of turning harvested moss into biochar; informed our proposed end-of-life route (Chapter 6)."], ["Satwik Sathpathy", "NLU Odisha; legal and environmental-law perspective", "Legal & Mining Environmental Justice Panel", "Ecological damage associated with mining, including contamination of water systems and river tributaries.", "Context: Background for the panel's discussion; no project change recorded."], ["Eesha Khandelwal", "Symbiosis; legal and environmental-justice perspective", "Legal & Mining Environmental Justice Panel", "Economic benefits of mining, negative externalities and the resource-curse framework.", "Shaped our approach: We frame mining as a trade-off between economic benefits and environmental and social costs."], ["Katlego Kgasi", "South Africa; mining and environmental-justice perspective", "Legal & Mining Environmental Justice Panel", "Conflicts of interest, the financial power of mining companies, barriers to participation, international interests, community agency; bioremediation or CSR should not excuse environmental harm.", "Shaped our approach: Strengthened our focus on power asymmetry, community agency, resource rights and corporate accountability."], ["Grizelda Mayo-Anda", "ELAC, Philippines; environmental and community-rights law", "Legal & Mining Environmental Justice Panel", "Local community advocacy, a case-by-case approach, safeguards for Indigenous peoples under Philippine law, community-level mechanisms.", "Shaped our approach: Strengthened our focus on community participation, Indigenous and community rights, and local governance."], ["Saurav Vinod", "3Sixty; legal, CSR and mining-governance perspective", "Legal & Mining Environmental Justice Panel", "The MMDR Act, accountability in government-run mining, CSR standardisation, absolute liability, informed consent and tribal and land rights, nationalisation versus private-company rights.", "Shaped our approach: Pushed us to examine liability, accountability, consent and regulation, not only the technical problem."], ["Dr. Ravi Babu K", "ICMR-NIOH Regional Occupational Health Centre (Southern), Bengaluru; Scientist-E", "Health / Occupational Exposure Consultation", "Health effects of prolonged exposure to Pb, Cd, Cr and Ni; oxidative stress and ionic mimicry; exposure and effect biomarkers; layered exposure controls.", "Changed the project: Widened our definition of impact; no health claims without measurements; Sanjeevani presented as complementary to workplace controls."], ["Dr. Shubhangi Pingle", "Written consultation on occupational exposure to heavy metals", "Not in our tracker yet", "Metal-specific toxicity, biomarkers of exposure and effect, and layered risk reduction.", "Changed the project: Same changes as above: impact widened, health claims kept to the evidence."], ["Indian Rare Earths Limited (IREL), OSCOM Chatrapur: Suraj Prakash Sahu, CVR Murty, Ashish Kulshreshta, Pramod Kumar Mishra", "Mineral-sands industry", "Anticipate", "Engagement at Chatrapur, where we came across a reported link between the area and kidney disease.", "Changed the project: Gave the project a health dimension; the claim is handled as described in Chapter 3."], ["Odisha Mining Corporation: Sukinda Valley and South Kaliapani mines", "Mine-site stakeholders", "Anticipate / Field Iteration", "Mine visit and headquarters engagement; site context documented; the women on our team inspected how tailings are managed.", "Context: Grounded our field questions; no design change recorded yet."], ["Tata Steel and Tata Steel Foundation", "Mining industry and community foundation", "Act / Reflect", "Proposed a funded side-project outside our core problem.", "Changed the project: We declined, to protect our core timeline."], ["Sandhya Ravishankar", "Journalist; fact-verification perspective", "Anticipate", "Her fact-verification method.", "Changed the project: Made us question and verify facts; we keep claims and evidence apart."], ["Shri Bibhuti Bhusan Jena", "Minister of Mining, Odisha", "Act / Reflect", "Recognised the potential of the idea and how central Odisha, as a mining hub, is to the project.", "Context: No project change recorded yet."], ["Mining and Geology Department, Kerala", "Government mining and geology department", "Problem-Driven Design", "Quarry and ore-processing visit.", "Open question: What it means for metal recovery and separation."], ["NALCO: Chitaranjan Bisoi, Tapan Samantray", "Mining and metals industry", "Problem-Driven Design", "A project conversation.", "Open question: Whether it changes which contaminants or sites we prioritise."], ["Gram Vikas", "Community development organisation, Odisha", "Engage", "Fluoride in river water in industrialised parts of Odisha, including Keonjhar.", "Open question: We have not yet worked out what it means for our project."], ["Dr. Sruti Mohapatra", "Founder of Swabhiman; disability-rights advocate", "Engage", "Agreed with our concerns for persons with disabilities and victims of occupational hazards in mining; noted that only death counts are taken into account.", "Open question: What it should mean for how Sanjeevani measures impact."]]}}</script>
+<script>
+/* Team Sanjeevani wiki page helpers. The page works without them; they fix links between our pages and make the CSV downloads. */
+(function () {
+  "use strict";
+  var root = document.getElementById("sjv-wiki");
+  if (!root) return;
+
+  /* 1. Links to our other wiki pages.
+     On *.igem.wiki the first part of the path is the team name, for example
+     https://2026.igem.wiki/team-name/human-practices, so a link written as
+     data-wiki="education" becomes /team-name/education. */
+  try {
+    if (/(^|\.)igem\.wiki$/.test(location.hostname)) {
+      var seg = location.pathname.split("/").filter(Boolean);
+      if (seg.length) {
+        var base = "/" + seg[0] + "/";
+        var links = root.querySelectorAll("a[data-wiki]");
+        for (var i = 0; i < links.length; i++) {
+          var hash = links[i].getAttribute("data-hash") || "";
+          links[i].setAttribute("href", base + links[i].getAttribute("data-wiki") + hash);
+        }
+      }
+    }
+  } catch (e) { /* keep the relative links */ }
+
+  /* 2. CSV downloads, built in the browser. Nothing is fetched from anywhere else. */
+  var data = null;
+  var holder = document.getElementById("sjv-data");
+  if (holder) {
+    try { data = JSON.parse(holder.textContent); } catch (e) { data = null; }
+  }
+  function csvCell(v) {
+    v = String(v == null ? "" : v);
+    return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  }
+  function toCSV(head, rows) {
+    var lines = [head.map(csvCell).join(",")];
+    for (var i = 0; i < rows.length; i++) lines.push(rows[i].map(csvCell).join(","));
+    return "﻿" + lines.join("\r\n") + "\r\n";
+  }
+  function download(name, text) {
+    var blob = new Blob([text], { type: "text/csv;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = name; a.style.display = "none";
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 0);
+  }
+  var buttons = root.querySelectorAll("[data-sjv-csv]");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function (ev) {
+      if (!data) return;
+      var kind = ev.currentTarget.getAttribute("data-sjv-csv");
+      var set = data[kind];
+      if (set) download(set.file, toCSV(set.head, set.rows));
+    });
+  }
+})();
+
+</script>
+<!-- ================= END SANJEEVANI HUMAN PRACTICES CONTENT ================= -->
+</body>
+</html>

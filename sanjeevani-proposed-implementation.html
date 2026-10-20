@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposed Implementation | Team Sanjeevani, iGEM 2026</title>
+<style>html,body{margin:0;padding:0;background:#faf8f2}</style>
+</head>
+<body>
+<!-- ================= BEGIN SANJEEVANI PROPOSED IMPLEMENTATION CONTENT =================
+     Paste everything from this line to END SANJEEVANI PROPOSED IMPLEMENTATION CONTENT into your proposed-implementation page.
+     It needs no external fonts, images or scripts. All styles are scoped to #sjv-wiki,
+     so they will not touch the rest of your wiki. -->
+<style>
+/* Team Sanjeevani wiki pages. Every rule is scoped to #sjv-wiki, so nothing here touches the rest of the wiki. */
+#sjv-wiki{display:block;color:#16211b;background:#faf8f2;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+#sjv-wiki *,#sjv-wiki *::before,#sjv-wiki *::after{box-sizing:border-box}
+#sjv-wiki :where(h1,h2,h3,h4,h5,p,ul,ol,figure,table,blockquote){margin:0}
+#sjv-wiki :where(ul,ol){padding-left:1.35em}
+#sjv-wiki a{color:#285c40;text-decoration-thickness:1px;text-underline-offset:3px}
+#sjv-wiki a:hover{color:#143726;text-decoration-thickness:2px}
+#sjv-wiki :focus-visible{outline:3px solid #2563eb;outline-offset:2px;border-radius:4px}
+#sjv-wiki .sjv-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#sjv-wiki .sjv-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+#sjv-wiki section,#sjv-wiki h3[id],#sjv-wiki header[id],#sjv-wiki figure[id]{scroll-margin-top:96px}
+
+/* hero */
+#sjv-wiki .sjv-hero{color:#f4f8f1;padding:64px 0 36px;background:radial-gradient(1200px 500px at 85% -10%,rgba(169,201,154,.28),transparent 60%),radial-gradient(700px 400px at -10% 110%,rgba(85,137,74,.35),transparent 60%),linear-gradient(160deg,#0d261b 0%,#143726 45%,#1c4732 100%)}
+#sjv-wiki .sjv-eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#cfe2c5;font-weight:600}
+#sjv-wiki .sjv-h1{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-weight:600;font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.08;margin-top:10px;color:#fff;letter-spacing:-.01em}
+#sjv-wiki .sjv-dek{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.15rem,2.2vw,1.42rem);line-height:1.5;margin-top:18px;max-width:58ch;color:#eef5ea}
+#sjv-wiki .sjv-hero-body{margin-top:22px;max-width:68ch;color:#d9e8d2;display:grid;gap:12px}
+#sjv-wiki .sjv-hero-body a{color:#fff}
+#sjv-wiki .sjv-nav{margin-top:34px}
+#sjv-wiki .sjv-nav ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+#sjv-wiki .sjv-nav-5 ol{grid-template-columns:repeat(5,minmax(0,1fr))}
+#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(4,minmax(0,1fr))}
+#sjv-wiki .sjv-nav a{display:flex;flex-direction:column;gap:2px;height:100%;padding:12px 14px;border-radius:12px;text-decoration:none;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);transition:background .15s ease,border-color .15s ease}
+#sjv-wiki .sjv-nav a:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);color:#fff}
+#sjv-wiki .sjv-nav-n{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1;color:#cfe2c5}
+#sjv-wiki .sjv-nav-t{font-size:.9rem;font-weight:600;line-height:1.3}
+#sjv-wiki .sjv-hero-stats{margin-top:30px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#sjv-wiki .sjv-hero-stat{padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+#sjv-wiki .sjv-hero-stat-v{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.7rem;line-height:1.1;color:#fff;font-weight:600}
+#sjv-wiki .sjv-hero-stat-l{font-size:.86rem;line-height:1.4;color:#d9e8d2;margin-top:4px}
+
+/* sections */
+#sjv-wiki .sjv-section{padding:64px 0;border-top:1px solid #dbe3d6;background:#faf8f2}
+#sjv-wiki .sjv-section:nth-of-type(even){background:#fdfcf8}
+#sjv-wiki .sjv-kicker{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#3a7550}
+#sjv-wiki h2{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.35rem);line-height:1.15;margin-top:6px;color:#0d261b;letter-spacing:-.005em;max-width:30ch}
+#sjv-wiki .sjv-lead{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.12rem,1.9vw,1.3rem);line-height:1.5;color:#3b4a42;margin-top:14px;max-width:62ch}
+#sjv-wiki .sjv-body{margin-top:28px;display:grid;gap:18px}
+#sjv-wiki .sjv-body>p,#sjv-wiki .sjv-body>ul,#sjv-wiki .sjv-body>ol{max-width:72ch}
+#sjv-wiki .sjv-body>ul li,#sjv-wiki .sjv-body>ol li{margin:.35em 0}
+#sjv-wiki .sjv-body>ol.sjv-phases,#sjv-wiki .sjv-body>ol.sjv-journey{max-width:none}
+#sjv-wiki .sjv-body>ol.sjv-phases>li,#sjv-wiki .sjv-body>ol.sjv-journey>li,#sjv-wiki .sjv-body>ol.sjv-chain>li,#sjv-wiki .sjv-body>ul.sjv-sdgs>li{margin:0}
+#sjv-wiki h3{font-size:1.22rem;font-weight:700;color:#143726;margin-top:18px;line-height:1.3}
+#sjv-wiki h4{font-size:1.05rem;font-weight:700;color:#143726}
+#sjv-wiki .sjv-cite{font-size:.72em;line-height:0;margin-left:1px}
+#sjv-wiki .sjv-cite a{text-decoration:none;font-weight:700;padding:0 1px}
+#sjv-wiki .sjv-top{margin-top:28px;font-size:.9rem}
+#sjv-wiki code{font-size:.9em;background:#eff1ee;padding:1px 5px;border-radius:5px}
+
+/* cards */
+#sjv-wiki .sjv-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#sjv-wiki .sjv-card{display:flex;flex-direction:column;gap:10px;padding:20px;background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;box-shadow:0 1px 0 rgba(20,55,38,.04)}
+#sjv-wiki .sjv-card-label{align-self:flex-start;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1c4732;background:#e7f1e1;border:1px solid #cfe2c5;border-radius:999px;padding:3px 10px}
+#sjv-wiki .sjv-card-change{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.42;color:#16211b}
+#sjv-wiki .sjv-card-from{font-size:.88rem;color:#5a6a62;line-height:1.45;margin-top:auto}
+#sjv-wiki .sjv-card-link{font-size:.9rem;font-weight:600}
+
+/* loop */
+#sjv-wiki .sjv-loop-fig{background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;padding:20px}
+#sjv-wiki .sjv-loop{list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-loop-step{position:relative;display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:12px;background:#f3f8f0;border:1px solid #cfe2c5}
+#sjv-wiki .sjv-loop-step:not(:last-child)::after{content:"\2192";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:#3a7550;font-weight:700;font-size:1rem}
+#sjv-wiki .sjv-loop-n{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.25rem;line-height:1;color:#3a7550}
+#sjv-wiki .sjv-loop-t{font-weight:700;color:#143726}
+#sjv-wiki .sjv-loop-d{font-size:.86rem;color:#3b4a42;line-height:1.4}
+#sjv-wiki .sjv-loop-fig figcaption{margin-top:12px;font-size:.9rem;color:#5a6a62}
+
+/* chips */
+#sjv-wiki .sjv-chips{display:flex;flex-wrap:wrap;gap:6px}
+#sjv-wiki .sjv-stage,#sjv-wiki .sjv-status,#sjv-wiki .sjv-kind,#sjv-wiki .sjv-badge{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:700;line-height:1.2;padding:4px 10px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+#sjv-wiki .sjv-stage{background:#eff1ee;color:#3f4943;border-color:#d9ded9}
+#sjv-wiki .sjv-status-changed,#sjv-wiki .sjv-badge-done{background:#e7f1e1;color:#143726;border-color:#a9c99a}
+#sjv-wiki .sjv-status-shaped,#sjv-wiki .sjv-badge-ongoing{background:#e8f0f9;color:#173f63;border-color:#c6d9ee}
+#sjv-wiki .sjv-status-context{background:#eff1ee;color:#3f4943;border-color:#d9ded9}
+#sjv-wiki .sjv-status-open,#sjv-wiki .sjv-badge-planned{background:#fcf1da;color:#6b4100;border-color:#f3d79c}
+#sjv-wiki .sjv-kind-hope{background:#e7f1e1;color:#143726;border-color:#a9c99a}
+#sjv-wiki .sjv-kind-risk{background:#fbe9e1;color:#7c2d12;border-color:#f1c7b3}
+
+/* people */
+#sjv-wiki .sjv-people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+#sjv-wiki .sjv-people-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+#sjv-wiki .sjv-person{display:flex;flex-direction:column;gap:10px;padding:20px;background:#ffffff;border:1px solid #dbe3d6;border-radius:14px}
+#sjv-wiki .sjv-person-head{display:flex;gap:12px;align-items:flex-start}
+#sjv-wiki .sjv-avatar{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem;color:#143726;background:linear-gradient(140deg,#e7f1e1,#cfe2c5);border:1px solid #a9c99a}
+#sjv-wiki .sjv-person-name{font-size:1.04rem;line-height:1.3;color:#0d261b}
+#sjv-wiki .sjv-person-role{font-size:.86rem;color:#5a6a62;line-height:1.4;margin-top:2px}
+#sjv-wiki .sjv-label{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5a6a62}
+#sjv-wiki .sjv-person-text{font-size:.97rem;line-height:1.55}
+#sjv-wiki .sjv-person-changed{margin-top:2px;padding:12px 14px;border-radius:10px;background:#f3f8f0;border-left:4px solid #3a7550;display:grid;gap:4px}
+
+/* callouts */
+#sjv-wiki .sjv-callout{padding:20px 22px;border-radius:14px;border:1px solid #dbe3d6;border-left-width:6px;display:grid;gap:10px;max-width:84ch;background:#ffffff}
+#sjv-wiki .sjv-callout-title{font-weight:700;font-size:1.02rem;color:#0d261b}
+#sjv-wiki .sjv-callout ul,#sjv-wiki .sjv-callout ol{display:grid;gap:6px}
+#sjv-wiki .sjv-callout-why{border-left-color:#3a7550}
+#sjv-wiki .sjv-callout-changed{border-left-color:#1c4732;background:#f3f8f0}
+#sjv-wiki .sjv-callout-note{border-left-color:#c58a14;background:#fcf1da}
+#sjv-wiki .sjv-callout-plan{border-left-color:#2f6aa3;background:#e8f0f9}
+#sjv-wiki .sjv-callout-honest{border-left-color:#7c2d12;background:#fbe9e1}
+#sjv-wiki .sjv-pull{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,2.2vw,1.45rem);line-height:1.45;color:#143726;border-left:4px solid #55894a;padding:6px 0 6px 18px;max-width:60ch}
+
+/* two claims */
+#sjv-wiki .sjv-ledger{border:2px solid #1c4732;border-radius:18px;background:#ffffff;padding:22px;display:grid;gap:18px;max-width:980px}
+#sjv-wiki .sjv-ledger-title{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.4rem;font-weight:600;color:#0d261b}
+#sjv-wiki .sjv-ledger-claims{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+#sjv-wiki .sjv-ledger-vs{align-self:center;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-style:italic;color:#5a6a62;font-size:1.1rem}
+#sjv-wiki .sjv-claim{padding:16px;border-radius:12px;background:#eff1ee;border:1px solid #d9ded9;display:grid;gap:6px;align-content:start}
+#sjv-wiki .sjv-claim-tag{justify-self:start;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3f4943}
+#sjv-wiki .sjv-claim-src{font-size:.86rem;color:#5a6a62}
+#sjv-wiki .sjv-claim-text{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.15rem;line-height:1.4}
+#sjv-wiki .sjv-ledger-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#sjv-wiki .sjv-ledger-cols h5{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#285c40;margin-bottom:6px}
+#sjv-wiki .sjv-ledger-cols ul{display:grid;gap:6px}
+#sjv-wiki .sjv-ledger-after{padding-top:14px;border-top:1px solid #dbe3d6;font-weight:600;color:#143726}
+
+/* tables */
+#sjv-wiki .sjv-table-wrap{overflow-x:auto;border:1px solid #dbe3d6;border-radius:14px;background:#ffffff}
+#sjv-wiki .sjv-table{width:100%;border-collapse:collapse;font-size:.94rem;line-height:1.5;min-width:680px}
+#sjv-wiki .sjv-table caption{caption-side:bottom;text-align:left;padding:10px 14px;font-size:.85rem;color:#5a6a62;border-top:1px solid #dbe3d6}
+#sjv-wiki .sjv-table th,#sjv-wiki .sjv-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid #dbe3d6}
+#sjv-wiki .sjv-table thead th{background:#f3f8f0;color:#143726;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid #bfcdb7}
+#sjv-wiki .sjv-table tbody th{font-weight:700;color:#0d261b;min-width:150px}
+#sjv-wiki .sjv-table tbody tr:last-child>*{border-bottom:0}
+#sjv-wiki .sjv-table-impacts td:first-child{width:76px}
+#sjv-wiki .sjv-table-log{font-size:.88rem;min-width:900px}
+#sjv-wiki .sjv-table-log .sjv-status{margin-bottom:4px}
+#sjv-wiki .sjv-table-wide{min-width:860px}
+
+/* details */
+#sjv-wiki .sjv-details{border:1px solid #dbe3d6;border-radius:14px;background:#ffffff}
+#sjv-wiki .sjv-details>summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:700;color:#143726;display:flex;gap:10px;align-items:center}
+#sjv-wiki .sjv-details>summary::-webkit-details-marker{display:none}
+#sjv-wiki .sjv-details>summary::before{content:"+";display:inline-grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#e7f1e1;color:#143726;font-weight:700}
+#sjv-wiki .sjv-details[open]>summary::before{content:"-"}
+#sjv-wiki .sjv-details>.sjv-table-wrap{border:0;border-top:1px solid #dbe3d6;border-radius:0 0 14px 14px}
+#sjv-wiki .sjv-details-body{padding:0 18px 18px;display:grid;gap:14px}
+
+/* diagrams drawn in SVG */
+#sjv-wiki .sjv-flow-fig{background:#ffffff;border:1px solid #dbe3d6;border-radius:14px;padding:18px}
+#sjv-wiki .sjv-flow{display:block;width:100%;height:auto}
+#sjv-wiki .sjv-flow-box{fill:#fff;stroke:#b9c6b3;stroke-width:1.5}
+#sjv-wiki .sjv-flow-box-hl{fill:#e8f0f9;stroke:#2f6aa3;stroke-width:2.5}
+#sjv-wiki .sjv-flow-dash{fill:#f7f8f6;stroke:#9aa79f;stroke-width:1.5;stroke-dasharray:6 5}
+#sjv-wiki .sjv-flow-dia{fill:#fff;stroke:#b9c6b3;stroke-width:1.5}
+#sjv-wiki .sjv-flow-t1{font:700 19px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#16211b}
+#sjv-wiki .sjv-flow-t2{font:400 16px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#3b4a42}
+#sjv-wiki .sjv-flow-t3{font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#5a6a62}
+#sjv-wiki .sjv-flow-ln{fill:none;stroke:#7d8b84;stroke-width:1.8}
+#sjv-wiki .sjv-flow-lbl{font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;fill:#5a6a62}
+#sjv-wiki .sjv-flow-list{display:none;margin-top:6px}
+#sjv-wiki .sjv-flow-fig figcaption{margin-top:12px;font-size:.88rem;color:#5a6a62}
+
+/* links to other pages */
+#sjv-wiki .sjv-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#sjv-wiki .sjv-links-1{grid-template-columns:minmax(0,560px)}
+#sjv-wiki .sjv-linkcard{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;text-decoration:none;color:#16211b;transition:border-color .15s ease,box-shadow .15s ease}
+#sjv-wiki .sjv-linkcard:hover{border-color:#55894a;box-shadow:0 4px 18px rgba(20,55,38,.08);color:#16211b}
+#sjv-wiki .sjv-linkcard-t{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-linkcard-d{font-size:.94rem;line-height:1.5;color:#3b4a42}
+
+/* buttons */
+#sjv-wiki .sjv-downloads{display:flex;flex-wrap:wrap;gap:10px}
+#sjv-wiki .sjv-btn{font:600 .95rem system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;padding:10px 16px;border-radius:10px;cursor:pointer;border:1px solid #1c4732;background:#1c4732;color:#fff}
+#sjv-wiki .sjv-btn:hover{background:#143726}
+#sjv-wiki .sjv-btn-ghost{background:transparent;color:#1c4732}
+#sjv-wiki .sjv-btn-ghost:hover{background:#f3f8f0;color:#143726}
+
+/* photo slots and galleries */
+#sjv-wiki .sjv-photo{display:grid;gap:8px;max-width:820px;align-content:start;min-width:0}
+#sjv-wiki .sjv-photo-slot{min-width:0}
+#sjv-wiki .sjv-gallery .sjv-photo{max-width:none}
+#sjv-wiki .sjv-photo-slot{aspect-ratio:4/3;width:100%;border-radius:14px;border:2px dashed #bfcdb7;background:repeating-linear-gradient(135deg,#f3f8f0 0 14px,#fff 14px 28px);display:grid;place-items:center;align-content:center;gap:8px;color:#285c40;text-align:center;padding:16px}
+#sjv-wiki .sjv-photo-slot svg{width:40px;height:40px}
+#sjv-wiki .sjv-photo-hint{font-size:.86rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#sjv-wiki .sjv-photo-img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #dbe3d6}
+#sjv-wiki .sjv-photo figcaption{font-size:.88rem;line-height:1.45;color:#5a6a62}
+#sjv-wiki .sjv-photo-wide .sjv-photo-slot,#sjv-wiki .sjv-photo-wide .sjv-photo-img{aspect-ratio:16/9}
+#sjv-wiki .sjv-gallery{display:grid;gap:12px}
+#sjv-wiki .sjv-gallery-title{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#285c40}
+#sjv-wiki .sjv-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* stat tiles */
+#sjv-wiki .sjv-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-stats-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#sjv-wiki .sjv-stat{padding:18px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;display:grid;gap:4px;align-content:start}
+#sjv-wiki .sjv-stat-v{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.05;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-stat-l{font-size:.95rem;line-height:1.4;color:#16211b}
+#sjv-wiki .sjv-stat-s{font-size:.8rem;line-height:1.4;color:#5a6a62}
+
+/* programme phases */
+#sjv-wiki .sjv-phases{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:none}
+#sjv-wiki .sjv-phase{position:relative;display:grid;gap:10px;align-content:start;padding:20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;border-top:6px solid #3a7550}
+#sjv-wiki .sjv-phase-planned{border-top-color:#c58a14;background:#fffdf7}
+#sjv-wiki .sjv-phase-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#sjv-wiki .sjv-phase-n{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5a6a62}
+#sjv-wiki .sjv-phase-title{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.3rem;font-weight:600;color:#0d261b}
+#sjv-wiki .sjv-phase-stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+#sjv-wiki .sjv-phase-num{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1;font-weight:600;color:#1c4732}
+#sjv-wiki .sjv-phase-planned .sjv-phase-num{color:#6b4100}
+#sjv-wiki .sjv-phase-unit{font-size:.9rem;color:#3b4a42}
+#sjv-wiki .sjv-phase-body{display:grid;gap:8px;font-size:.97rem}
+#sjv-wiki .sjv-phase-body ul{display:grid;gap:4px}
+
+/* SWOT */
+#sjv-wiki .sjv-swot-fig{display:grid;gap:10px}
+#sjv-wiki .sjv-swot-axes{font-size:.86rem;color:#5a6a62}
+#sjv-wiki .sjv-swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#sjv-wiki .sjv-swot-q{padding:18px 20px;border-radius:14px;border:2px solid;display:grid;gap:8px;align-content:start}
+#sjv-wiki .sjv-swot-q ul{display:grid;gap:5px;font-size:.97rem}
+#sjv-wiki .sjv-swot-good{border-color:#7fb86a;background:#f1f8ed}
+#sjv-wiki .sjv-swot-bad{border-color:#e0b04a;background:#fff8e8}
+#sjv-wiki .sjv-swot-q h3{font-size:1.05rem;margin-top:0}
+#sjv-wiki .sjv-swot-fig figcaption{font-size:.86rem;color:#5a6a62}
+
+/* roadmap: four phases in a row, the three gates underneath, each gate under the boundary it guards */
+#sjv-wiki .sjv-roadmap{list-style:none;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:14px 12px;align-items:start}
+#sjv-wiki .sjv-road-phase{position:relative;grid-row:1;align-self:stretch;padding:16px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;display:grid;gap:6px;align-content:start}
+#sjv-wiki .sjv-road-phase:not(.sjv-road-p4)::after{content:"\2192";position:absolute;right:-12px;top:22px;color:#3a7550;font-weight:700}
+#sjv-wiki .sjv-road-p1{grid-column:1/span 2}
+#sjv-wiki .sjv-road-p2{grid-column:3/span 2}
+#sjv-wiki .sjv-road-p3{grid-column:5/span 2}
+#sjv-wiki .sjv-road-p4{grid-column:7/span 2}
+#sjv-wiki .sjv-road-now{border:2px solid #2f6aa3;background:#e8f0f9}
+#sjv-wiki .sjv-road-phase h3{font-size:1rem;margin-top:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#sjv-wiki .sjv-road-phase ul{font-size:.92rem;display:grid;gap:3px;padding-left:1.1em}
+#sjv-wiki .sjv-road-gate{grid-row:2;display:grid;justify-items:center;gap:6px;text-align:center}
+#sjv-wiki .sjv-road-g1{grid-column:2/span 2}
+#sjv-wiki .sjv-road-g2{grid-column:4/span 2}
+#sjv-wiki .sjv-road-g3{grid-column:6/span 2}
+#sjv-wiki .sjv-road-gate-mark{width:18px;height:18px;transform:rotate(45deg);background:#a9c99a;border:2px solid #285c40;border-radius:3px}
+#sjv-wiki .sjv-road-gate p{font-size:.84rem;line-height:1.35;color:#3b4a42}
+#sjv-wiki .sjv-road-gate .sjv-label{font-size:.68rem}
+
+/* numbered steps */
+#sjv-wiki .sjv-journey{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#sjv-wiki .sjv-journey li{position:relative;padding:16px 16px 16px 58px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;min-height:86px;display:flex;align-items:center;font-size:.97rem;line-height:1.45}
+#sjv-wiki .sjv-journey-n{position:absolute;left:14px;top:16px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.05rem;color:#fff;background:#285c40}
+#sjv-wiki .sjv-chain{list-style:none;padding:0;display:grid;gap:10px;max-width:84ch}
+#sjv-wiki .sjv-chain li{position:relative;padding:14px 16px 14px 58px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;font-size:.98rem;line-height:1.5}
+#sjv-wiki .sjv-chain li:not(:last-child)::after{content:"\2193";position:absolute;left:26px;bottom:-17px;color:#3a7550;font-weight:700;z-index:1}
+#sjv-wiki .sjv-chain-n{position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;color:#143726;background:#e7f1e1;border:1px solid #a9c99a}
+#sjv-wiki .sjv-chain li.sjv-chain-ours{border-color:#2f6aa3;background:#e8f0f9}
+
+/* formula */
+#sjv-wiki .sjv-formula{padding:18px 20px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;max-width:84ch;display:grid;gap:8px}
+#sjv-wiki .sjv-formula-eq{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.6;color:#0d261b}
+#sjv-wiki .sjv-formula-eq b{font-weight:700}
+#sjv-wiki .sjv-formula-note{font-size:.88rem;color:#5a6a62}
+
+/* SDGs */
+#sjv-wiki .sjv-sdgs{list-style:none;padding:0;display:grid;gap:12px;max-width:92ch}
+#sjv-wiki .sjv-sdg{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:16px;border-radius:14px;background:#ffffff;border:1px solid #dbe3d6;border-left:8px solid #888}
+#sjv-wiki .sjv-sdg-n{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:1.4rem;font-weight:700;color:#16211b;background:#eff1ee}
+#sjv-wiki .sjv-sdg-t{font-weight:700;color:#0d261b}
+#sjv-wiki .sjv-sdg-target{font-size:.92rem;color:#3b4a42;margin-top:2px}
+#sjv-wiki .sjv-sdg-ours{font-size:.95rem;margin-top:6px}
+#sjv-wiki .sjv-sdg-3{border-left-color:#4C9F38}
+#sjv-wiki .sjv-sdg-4{border-left-color:#C5192D}
+#sjv-wiki .sjv-sdg-5{border-left-color:#FF3A21}
+#sjv-wiki .sjv-sdg-6{border-left-color:#26BDE2}
+#sjv-wiki .sjv-sdg-8{border-left-color:#A21942}
+#sjv-wiki .sjv-sdg-10{border-left-color:#DD1367}
+#sjv-wiki .sjv-sdg-12{border-left-color:#BF8B2E}
+#sjv-wiki .sjv-sdg-15{border-left-color:#56C02B}
+#sjv-wiki .sjv-sdg-16{border-left-color:#00689D}
+#sjv-wiki .sjv-sdg-17{border-left-color:#19486A}
+
+/* references */
+#sjv-wiki .sjv-refs{display:grid;gap:10px;max-width:90ch;margin-top:22px;font-size:.95rem;overflow-wrap:anywhere}
+#sjv-wiki .sjv-refs li{padding-left:4px}
+#sjv-wiki .sjv-refs li:target{background:#fcf1da;border-radius:6px}
+#sjv-wiki .sjv-section-refs h3{margin-top:30px}
+#sjv-wiki .sjv-section-refs h4{margin-top:16px;font-size:.95rem;color:#1c4732}
+#sjv-wiki .sjv-laws{display:grid;gap:6px;max-width:90ch;margin-top:8px;font-size:.92rem;color:#3b4a42}
+#sjv-wiki .sjv-about{margin-top:34px;padding:18px 20px;border-radius:14px;background:#f3f8f0;border:1px solid #cfe2c5;max-width:90ch;display:grid;gap:8px;font-size:.94rem}
+#sjv-wiki .sjv-about h3{margin-top:0}
+
+/* responsive */
+@media (max-width:980px){
+  #sjv-wiki .sjv-nav ol,#sjv-wiki .sjv-nav-5 ol,#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop-step::after{display:none}
+  #sjv-wiki .sjv-links{grid-template-columns:1fr}
+  #sjv-wiki .sjv-cards,#sjv-wiki .sjv-people{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-phases{grid-template-columns:1fr}
+  #sjv-wiki .sjv-stats,#sjv-wiki .sjv-hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-journey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-roadmap{grid-template-columns:1fr}
+  #sjv-wiki .sjv-road-phase,#sjv-wiki .sjv-road-gate{grid-column:auto;grid-row:auto}
+  #sjv-wiki .sjv-road-phase::after{display:none}
+  #sjv-wiki .sjv-road-gate{grid-auto-flow:column;justify-content:start;align-items:center;text-align:left;padding-left:18px}
+}
+@media (max-width:700px){
+  #sjv-wiki{font-size:16px}
+  #sjv-wiki .sjv-wrap{padding:0 16px}
+  #sjv-wiki .sjv-hero{padding:44px 0 28px}
+  #sjv-wiki .sjv-section{padding:44px 0}
+  #sjv-wiki .sjv-nav ol,#sjv-wiki .sjv-nav-5 ol,#sjv-wiki .sjv-nav-7 ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-loop{grid-template-columns:1fr}
+  #sjv-wiki .sjv-people,#sjv-wiki .sjv-people-2,#sjv-wiki .sjv-cards{grid-template-columns:1fr}
+  #sjv-wiki .sjv-ledger{padding:16px}
+  #sjv-wiki .sjv-ledger-claims{grid-template-columns:1fr}
+  #sjv-wiki .sjv-ledger-vs{justify-self:center}
+  #sjv-wiki .sjv-ledger-cols{grid-template-columns:1fr}
+  #sjv-wiki .sjv-flow{display:none}
+  #sjv-wiki .sjv-flow-list{display:block}
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sjv-wiki .sjv-swot{grid-template-columns:1fr}
+  #sjv-wiki .sjv-journey{grid-template-columns:1fr}
+  #sjv-wiki .sjv-sdg{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  #sjv-wiki .sjv-stats,#sjv-wiki .sjv-hero-stats{grid-template-columns:1fr}
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{gap:10px}
+  #sjv-wiki .sjv-photo-slot{padding:10px;gap:6px}
+  #sjv-wiki .sjv-photo-slot svg{width:30px;height:30px}
+  #sjv-wiki .sjv-photo-hint{font-size:.72rem}
+}
+@media (max-width:330px){
+  #sjv-wiki .sjv-gallery-grid,#sjv-wiki .sjv-gallery-grid-2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  #sjv-wiki *{transition:none!important;scroll-behavior:auto!important}
+}
+@media print{
+  #sjv-wiki .sjv-hero{background:#143726!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #sjv-wiki .sjv-details>*{display:block}
+  #sjv-wiki .sjv-downloads{display:none}
+}
+
+</style>
+<div id="sjv-wiki" class="sjv">
+<header class="sjv-hero" id="sjv-top"><div class="sjv-wrap"><p class="sjv-eyebrow">Team Sanjeevani · iGEM 2026 · IISER Thiruvananthapuram</p><h1 class="sjv-h1">Proposed Implementation</h1><p class="sjv-dek">Our moss is meant to pull heavy metals out of polluted land. This page sets out who would use Sanjeevani and how, what would happen to the metal-laden moss after harvest, what must be true before any of it leaves the lab, and where we go next.</p><div class="sjv-hero-body"><p>Nothing on this page has been tested in the field. Every number here is either a benchmark from the literature or a target we still have to measure, and we label which is which.</p></div><nav class="sjv-nav sjv-nav-7" aria-label="Sections on this page"><ol><li><a href="#sjv-users"><span class="sjv-nav-n">1</span><span class="sjv-nav-t">Who and how</span></a></li><li><a href="#sjv-endoflife"><span class="sjv-nav-n">2</span><span class="sjv-nav-t">After the harvest</span></a></li><li><a href="#sjv-production"><span class="sjv-nav-n">3</span><span class="sjv-nav-t">Making biochar</span></a></li><li><a href="#sjv-safety"><span class="sjv-nav-n">4</span><span class="sjv-nav-t">Safety</span></a></li><li><a href="#sjv-lca"><span class="sjv-nav-n">5</span><span class="sjv-nav-t">Life cycle</span></a></li><li><a href="#sjv-market"><span class="sjv-nav-n">6</span><span class="sjv-nav-t">Market</span></a></li><li><a href="#sjv-roadmap"><span class="sjv-nav-n">7</span><span class="sjv-nav-t">Roadmap</span></a></li><li><a href="#sjv-future"><span class="sjv-nav-n">8</span><span class="sjv-nav-t">Where next</span></a></li></ol></nav></div></header>
+<section class="sjv-section" id="sjv-users" aria-labelledby="sjv-users-h"><div class="sjv-wrap"><p class="sjv-kicker">Who it is for</p><h2 id="sjv-users-h">Who would use Sanjeevani, and how</h2><p class="sjv-lead">The first users would be the owners of metal-polluted land who pay for clean-up. The biochar made from the harvested moss would then serve buyers who need cheap metal sorbents or recovered metals.</p><div class="sjv-body"><div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Who we expect to use Sanjeevani and its products. Every entry in the ‘proof’ column is evidence we would still have to produce.">
+<table class="sjv-table sjv-table-wide">
+<caption>Who we expect to use Sanjeevani and its products. Every entry in the ‘proof’ column is evidence we would still have to produce.</caption>
+<thead><tr><th scope="col">Who</th><th scope="col">Their problem</th><th scope="col">What they want from us</th><th scope="col">Our product</th><th scope="col">Proof they will ask for</th></tr></thead><tbody>
+<tr><th scope="row">Mine and smelter operators (tailings, waste dumps)</th><td>Large areas of metal-rich ground; closure and rehabilitation duties</td><td>Low-cost, in-place treatment and a safe fate for the harvested biomass</td><td>Moss remediation with on-site pyrolysis</td><td>Metal removal per m² per season; leaching data for the char</td></tr>
+<tr><th scope="row">Owners of industrial brownfields and municipal dumps</th><td>Land that cannot be reused; pressure from regulators</td><td>Gentle, low-disturbance clean-up</td><td>Moss remediation service</td><td>Cost per hectare against excavation</td></tr>
+<tr><th scope="row">Electroplating, e-waste and battery recyclers</th><td>Metal-laden effluent; activated carbon is costly</td><td>A cheaper single-use sorbent that also lets metals be recovered</td><td>Sorbent char, then recovery</td><td>Capacity in their real effluent, at their pH and salt level</td></tr>
+<tr><th scope="row">Metal recyclers</th><td>Dilute metal streams are hard to sell</td><td>Concentrated metal in an acid leachate</td><td>Recovery stream</td><td>Grade and volume of recovered metal</td></tr>
+<tr><th scope="row">Land-restoration groups and local governments</th><td>Degraded, eroding land that will not support plants</td><td>A soil conditioner that holds water and nutrients</td><td>Soil-amendment char, only after it passes leaching tests</td><td>Safety data; a field trial on non-food land</td></tr>
+</tbody></table></div>
+<h3 id="sjv-journey">How it would be used: eight steps</h3>
+<ol class="sjv-journey"><li><span class="sjv-journey-n" aria-hidden="true">1</span>Survey the site: map metals and their levels.</li><li><span class="sjv-journey-n" aria-hidden="true">2</span>Establish the moss on the polluted ground.</li><li><span class="sjv-journey-n" aria-hidden="true">3</span>Monitor metal uptake through the growing season.</li><li><span class="sjv-journey-n" aria-hidden="true">4</span>Harvest and bag the biomass as hazardous waste.</li><li><span class="sjv-journey-n" aria-hidden="true">5</span>Pyrolyse it in a local unit and capture the off-gas.</li><li><span class="sjv-journey-n" aria-hidden="true">6</span>Test every batch: leaching, metal content, surface area.</li><li><span class="sjv-journey-n" aria-hidden="true">7</span>Route the char: sorbent, metal recovery or soil use.</li><li><span class="sjv-journey-n" aria-hidden="true">8</span>Hand the land back with before-and-after soil data.</li></ol>
+<p>Any field use would first need regulatory approval (<a href="#sjv-safety">Safety and regulation</a>). None of our work so far releases moss into the environment.</p>
+<div class="sjv-callout sjv-callout-why" role="note"><p class="sjv-callout-title">What our Human Practices added to every step</p><ul><li>Who is legally responsible for the site, and what happens if the operator disappears?</li><li>Have the people who live and work there been informed, and given a say?</li><li>Who could be exposed at each step, and through which pathway?</li><li>Is the clean-up adding to a company’s obligations, or being used to excuse them?</li></ul>
+<p>These questions came from our legal and health panels (<a data-wiki="human-practices" data-hash="#sjv-ch2" href="human-practices#sjv-ch2">Human Practices, Chapter 2</a>). We do not have full answers yet; any honest deployment would have to answer them first.</p></div>
+<h3>The people a deployment would need</h3>
+<p>Land owners (mines, industry, municipalities); pollution regulators; the communities and farmers who live nearby; pyrolysis partners; metal recyclers; and testing laboratories.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-endoflife" aria-labelledby="sjv-endoflife-h"><div class="sjv-wrap"><p class="sjv-kicker">After the harvest</p><h2 id="sjv-endoflife-h">Why the harvested moss should become biochar</h2><p class="sjv-lead">Remediation that leaves behind a pile of metal-laden moss only moves the pollution; it does not finish the job.</p><div class="sjv-body"><p>Toxic metals in soil are not a local problem: an estimated 14 to 17% of the world’s cropland exceeds agricultural thresholds for at least one toxic metal.<sup class="sjv-cite"><a href="#sjv-ref-1" aria-label="Reference 1">1</a></sup> Our moss is meant to draw such metals out of the soil and into its tissue. That creates a second problem: the harvested moss is then a concentrated, hazardous waste. So we asked what would happen if the end of our remediation pipeline produced something useful.</p>
+<ol class="sjv-chain"><li><span class="sjv-chain-n" aria-hidden="true">1</span>Metal-polluted land threatens food and health.</li><li><span class="sjv-chain-n" aria-hidden="true">2</span>Moss phytoremediation moves the metals from soil into biomass.</li><li><span class="sjv-chain-n" aria-hidden="true">3</span>The usual fates of that biomass are poor: landfill keeps the hazard, and open burning releases carbon as CO₂ and can volatilise metals.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup> On-site burning is still the common fate of biomass from pioneer plants on degraded land.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup></li><li class="sjv-chain-ours"><span class="sjv-chain-n" aria-hidden="true">4</span>Slow pyrolysis turns the biomass into biochar, a stable carbon solid. For contaminated biomass, pyrolysis cuts the volume and lowers the mobility and bioavailability of the metals left in the char.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></li><li class="sjv-chain-ours"><span class="sjv-chain-n" aria-hidden="true">5</span>The char becomes a product: a metal sorbent, a recovery route for valuable metals, or, if it is safe, a soil amendment. In a circular bioeconomy, one process’s waste is the next one’s input.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></li></ol>
+<p>Why biochar and not another material: it is made from waste, needs no new infrastructure to apply, and can be tuned through feedstock, temperature and activation.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup> Making activated carbon takes about 97 MJ/kg, against about 6.1 MJ/kg for biochar, so biochar is the lower-energy sorbent.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></p>
+<div class="sjv-callout sjv-callout-note" role="note"><p class="sjv-callout-title">Where the idea came from</p><p>A question about arsenic in rice, which we brought back from Paderu, took us to Dr. Sudhakar Srivastava of Banaras Hindu University, whose group works on biochar that reduces arsenic in rice.<sup class="sjv-cite"><a href="#sjv-ref-6" aria-label="Reference 6">6</a></sup> Talking with him gave us the idea of turning our harvested moss into biochar. We then built the plan on this page from four biochar studies and discussed it with him (<a data-wiki="human-practices" data-hash="#sjv-ch6" href="human-practices#sjv-ch6">Human Practices, Chapter 6</a>).</p></div>
+<div class="sjv-callout sjv-callout-honest" role="note"><p class="sjv-callout-title">Honest status</p><p>None of the four biochar studies this plan draws on used moss. They used straw, sawdust, a fern and a seagrass. Every number on this page is a benchmark from another feedstock, and data on moss is the first thing we must generate.</p></div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-production" aria-labelledby="sjv-production-h"><div class="sjv-wrap"><p class="sjv-kicker">Making biochar</p><h2 id="sjv-production-h">How we would make it, and what we would make</h2><p class="sjv-lead">We would dry the harvested moss and slow-pyrolyse it in an oxygen-free retort at 400 to 500 °C. Phosphoric-acid activation is an optional step that gives sorbent-grade char without pushing the temperature up.</p><div class="sjv-body"><h3>Process steps, to adapt once we test moss</h3>
+<ol><li><strong>Harvest and dry.</strong> Wash soil off the moss with deionised water, air-dry, oven-dry at about 70 °C and chop to about 1 mm, as in the fern protocol of Mai et al.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup> Weigh it and measure its metal content: this is the starting point of the metal mass balance.</li><li><strong>Optional acid impregnation (sorbent grade only).</strong> Stir the dry biomass in phosphoric acid, then dry it. Muratore et al. used 20 g of biomass in 300 mL of solution containing 41.28 mL of 85% H₃PO₄, for 6 h at 85 °C, then dried it at 110 °C for 12 h.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li><strong>Slow pyrolysis under nitrogen.</strong> Seal the biomass in a steel retort, flush it with N₂, heat at 7 to 10 °C/min and hold for 1 h. Mai et al. used 10 °C/min with 3 NL/min N₂;<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup> Muratore et al. used 475 °C, 7 °C/min and 160 mL/min N₂.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li><strong>Capture the off-gas.</strong> Syngas and bio-oil can heat the next batch; reusing waste heat and charging a gate fee for biowaste can bring the net production cost close to zero (Maroušek et al. 2020, cited in Zhao et al.).<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup> A filter or scrubber must catch volatile metals such as cadmium.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></li><li><strong>Cool under nitrogen.</strong> Let the char cool to room temperature before opening the retort; hot char can catch fire in air.</li><li><strong>Wash and dry (sorbent grade).</strong> Wash with hot water until neutral, then dry at 110 °C.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> Collect the acidic rinse water and neutralise it before disposal.</li><li><strong>Characterise and leach-test</strong> before any batch leaves the lab (table below).</li></ol>
+<h3>Design choices</h3>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Process choices and the literature behind them. All values are benchmarks from other feedstocks.">
+<table class="sjv-table">
+<caption>Process choices and the literature behind them. All values are benchmarks from other feedstocks.</caption>
+<thead><tr><th scope="col">Choice</th><th scope="col">What the studies found</th><th scope="col">Our starting point</th></tr></thead><tbody>
+<tr><th scope="row">Atmosphere: open, closed or N₂</th><td>For the fern, open heating left average fixed carbon at 4.27%, against 20.3% (closed) and 24.9% (N₂), and destroyed the pore structure.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup></td><td>N₂-flushed retort; a sealed lid if N₂ is unavailable</td></tr>
+<tr><th scope="row">Heating rate</th><td>Slow pyrolysis (below 10 °C/min, minutes to hours) maximises char; fast pyrolysis (100 to 1,000 °C/min, 0.5 to 5 s) mainly makes bio-oil.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td><td>Slow, 10 °C/min, 1 h hold</td></tr>
+<tr><th scope="row">Temperature</th><td>Higher temperature raises surface area, pH and aromatic carbon but lowers yield.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup> In metal-rich plant biomass, cadmium is highly volatile while copper and iron stay in the char; 400 to 500 °C was judged optimal.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></td><td>400 to 500 °C, then test 600 °C with off-gas capture</td></tr>
+<tr><th scope="row">Activation</th><td>Posidonia char rose from 4.7 m²/g (raw) to 324 m²/g (H₃PO₄) and 651 m²/g (KOH); H₃PO₄ also added phosphate binding groups.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td><td>H₃PO₄ for the sorbent product; none for the soil product</td></tr>
+</tbody></table></div>
+<div class="sjv-callout sjv-callout-plan" role="note"><p class="sjv-callout-title">The trade-off we expect</p><p>The fern study reached its highest surface area, 701 m²/g, at 800 °C under N₂, and recommends 700 to 800 °C.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup> But our feedstock is contaminated, and at that temperature the cadmium our moss captured would leave as vapour.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup> Acid activation is the way out: Muratore et al. reached 324 m²/g at 475 °C,<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> in the same range as the fern char at 600 °C (387 m²/g).<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup> So we expect to keep the temperature low and still make a porous char. For moss, this is a hypothesis still to test.</p></div>
+<h3 id="sjv-products">What we would make</h3>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Three char products and an energy by-product. Every batch is routed to one of them by its test results, never by default.">
+<table class="sjv-table sjv-table-wide">
+<caption>Three char products and an energy by-product. Every batch is routed to one of them by its test results, never by default.</caption>
+<thead><tr><th scope="col">Product</th><th scope="col">What it is</th><th scope="col">Benchmark from the studies</th><th scope="col">Used by</th><th scope="col">Gate before release</th></tr></thead><tbody>
+<tr><th scope="row">Sorbent char</th><td>H₃PO₄-activated moss char for metal-laden water (mine drainage, plating effluent, leachate)</td><td>Activated Posidonia char took up 0.23 to 0.31 mmol/g of La, Nd and Dy at pH 5, against 0.07 mmol/g for the raw char.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> In the soil studies Yaashikaa et al. compile, biochars removed up to 99.9% of Cd and 100% of Pb, but only 50 to 67% in some Pb and Zn cases.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></td><td>Wastewater plants, mines, industry</td><td>Capacity test on a real effluent; no metal release at the pH of use</td></tr>
+<tr><th scope="row">Metal recovery stream</th><td>Acid leaching of spent char, or of the metal-rich char itself, to win back metals</td><td>0.1 M HNO₃ desorbed the bound rare earths completely, but capacity fell by about 80% after the first cycle.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td><td>Metal recyclers; a phytomining partner</td><td>A recovery yield worth the acid and labour</td></tr>
+<tr><th scope="row">Soil-amendment char</th><td>Low-temperature, un-activated char returned to non-food land</td><td>Biochar raises soil pH and cation exchange capacity, holds water and nutrients, and stores carbon; but heavy metals may persist in it.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></td><td>Land restoration, mine tailings, roadside verges</td><td>Passes the leaching test; within local limits for metals in soil inputs</td></tr>
+<tr><th scope="row">Energy by-product</th><td>Syngas and bio-oil from the retort</td><td>Reusing this heat brings the production cost close to zero.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td><td>Our own pyrolysis unit</td><td>Off-gas scrubbed for volatile metals</td></tr>
+</tbody></table></div>
+<h3>Design rules from the studies</h3>
+<ul><li><strong>Match the char to the pollutant.</strong> Low-temperature chars keep more oxygen groups and suit inorganic pollutants such as metals; high-temperature chars suit organic pollutants.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></li><li><strong>Mind the pH.</strong> The activated Posidonia char had a point of zero charge of 4.1, so it is negatively charged at pH 5 and attracts metal cations; the raw char (point of zero charge 9.2) was positively charged and took up only a quarter to a third as much. At pH 3, uptake fell to about a third of its pH 5 value.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li><strong>Mind competing salts.</strong> In 0.1 M NaNO₃ uptake dropped, for Dy by about half. Real effluents are salty, so test in them.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li><strong>Plan for single use, then recovery.</strong> Because capacity collapses after one cycle, the sorbent should be a one-pass product whose spent form feeds the recovery stream.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li><strong>Watch fine particles.</strong> Highly charged chars can repel or attract soil colloids, and fine particles can be lost; the soil product should be granulated.<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup></li></ul>
+<h3 id="sjv-routing">Every batch is tested and routed</h3>
+<figure class="sjv-flow-fig"><svg class="sjv-flow" viewBox="0 0 960 500" role="img" aria-labelledby="sjv-flow-t sjv-flow-d" xmlns="http://www.w3.org/2000/svg"><title id="sjv-flow-t">How each char batch would be routed</title><desc id="sjv-flow-d">A char batch is tested for leaching, metals and surface area. Activated char becomes sorbent char for one use on effluent; spent sorbent goes to metal recovery. Char that is not activated becomes soil-amendment char for non-food land only if it passes the leaching test; char that fails goes to metal recovery. Only the residue from metal recovery goes to secure landfill.</desc><defs><marker id="sjv-ah-routing" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6d66"/></marker></defs><rect class="sjv-flow-box" x="20" y="40" width="150" height="70" rx="12"/><text class="sjv-flow-t1" x="95.0" y="81.0" text-anchor="middle">Char batch</text><rect class="sjv-flow-box-hl" x="205" y="40" width="220" height="70" rx="12"/><text class="sjv-flow-t1" x="315.0" y="71.0" text-anchor="middle">Test every batch</text><text class="sjv-flow-t2" x="315.0" y="95.0" text-anchor="middle">leaching, metals, area</text><polygon class="sjv-flow-dia" points="560,20.0 655.0,75 560,130.0 465.0,75"/><text class="sjv-flow-t1" x="560" y="81" text-anchor="middle">Activated?</text><rect class="sjv-flow-box" x="730" y="40" width="210" height="70" rx="12"/><text class="sjv-flow-t1" x="835.0" y="71.0" text-anchor="middle">Sorbent char</text><text class="sjv-flow-t2" x="835.0" y="95.0" text-anchor="middle">one use on effluent</text><polygon class="sjv-flow-dia" points="560,220.0 670.0,275 560,330.0 450.0,275"/><text class="sjv-flow-t1" x="560" y="281" text-anchor="middle">Passes leaching?</text><rect class="sjv-flow-box" x="120" y="240" width="260" height="70" rx="12"/><text class="sjv-flow-t1" x="250.0" y="271.0" text-anchor="middle">Soil-amendment char</text><text class="sjv-flow-t2" x="250.0" y="295.0" text-anchor="middle">non-food land only</text><rect class="sjv-flow-box" x="730" y="240" width="210" height="70" rx="12"/><text class="sjv-flow-t1" x="835.0" y="271.0" text-anchor="middle">Metal recovery</text><text class="sjv-flow-t2" x="835.0" y="295.0" text-anchor="middle">acid leach of the char</text><rect class="sjv-flow-box" x="730" y="400" width="210" height="70" rx="12"/><text class="sjv-flow-t1" x="835.0" y="431.0" text-anchor="middle">Secure landfill</text><text class="sjv-flow-t2" x="835.0" y="455.0" text-anchor="middle">residue only</text><path class="sjv-flow-ln" d="M170,75 L203,75" marker-end="url(#sjv-ah-routing)"/><path class="sjv-flow-ln" d="M425,75 L463,75" marker-end="url(#sjv-ah-routing)"/><path class="sjv-flow-ln" d="M655,75 L728,75" marker-end="url(#sjv-ah-routing)"/><text class="sjv-flow-lbl" x="690" y="64" text-anchor="middle">yes</text><path class="sjv-flow-ln" d="M560,130 L560,218" marker-end="url(#sjv-ah-routing)"/><text class="sjv-flow-lbl" x="578" y="180" text-anchor="middle">no</text><path class="sjv-flow-ln" d="M450,275 L382,275" marker-end="url(#sjv-ah-routing)"/><text class="sjv-flow-lbl" x="416" y="264" text-anchor="middle">yes</text><path class="sjv-flow-ln" d="M670,275 L728,275" marker-end="url(#sjv-ah-routing)"/><text class="sjv-flow-lbl" x="698" y="264" text-anchor="middle">no</text><path class="sjv-flow-ln" d="M835,110 L835,238" marker-end="url(#sjv-ah-routing)"/><text class="sjv-flow-lbl" x="847" y="180" text-anchor="start">spent sorbent</text><path class="sjv-flow-ln" d="M835,310 L835,398" marker-end="url(#sjv-ah-routing)"/></svg><ol class="sjv-flow-list"><li>Every char batch is tested for leaching, metal content and surface area.</li><li>Activated char becomes sorbent char, used once on metal-laden effluent; the spent sorbent goes to metal recovery.</li><li>Char that is not activated becomes soil-amendment char for non-food land, but only if it passes the leaching test.</li><li>Char that fails the leaching test goes to metal recovery by acid leaching.</li><li>Only the residue from metal recovery goes to secure landfill.</li></ol><figcaption>How each char batch would be routed: nothing reaches soil untested. Redrawn from our implementation plan; a proposal, not yet tested on moss.</figcaption></figure>
+<p>The leaching limit itself comes from the regulator; we would set it before the first batch is tested.</p>
+<h3>What we would measure, and why</h3>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="The checks every batch would pass before it leaves the lab.">
+<table class="sjv-table">
+<caption>The checks every batch would pass before it leaves the lab.</caption>
+<thead><tr><th scope="col">Measurement</th><th scope="col">Method used in the studies</th><th scope="col">Why it matters for us</th></tr></thead><tbody>
+<tr><th scope="row">Yield, volatile matter, ash, fixed carbon</th><td>Proximate analysis, ASTM D1762-84<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup></td><td>Mass balance; carbon stability</td></tr>
+<tr><th scope="row">Metal content of char, oil and gas</th><td>ICP-OES<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td><td>Where each metal ends up</td></tr>
+<tr><th scope="row">Leachable metals</th><td>A standard leaching test, the one the regulator uses</td><td>Decides whether the char is safe for soil</td></tr>
+<tr><th scope="row">Surface area and pores</th><td>BET with N₂ at 77 K<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td><td>Sorbent capacity</td></tr>
+<tr><th scope="row">Functional groups</th><td>FTIR (all four studies)</td><td>Binding sites for metals</td></tr>
+<tr><th scope="row">Surface elements and O/C ratio</th><td>XPS, SEM-EDX<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup><sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></td><td>Stability; phosphate or silica on the surface</td></tr>
+<tr><th scope="row">Surface charge</th><td>Point of zero charge<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup>; polyelectrolyte titration<sup class="sjv-cite"><a href="#sjv-ref-3" aria-label="Reference 3">3</a></sup></td><td>Predicts uptake of metal cations at a given pH</td></tr>
+<tr><th scope="row">Morphology</th><td>SEM (all four studies)</td><td>Shows pores before and after use</td></tr>
+</tbody></table></div></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-safety" aria-labelledby="sjv-safety-h"><div class="sjv-wrap"><p class="sjv-kicker">Safety and regulation</p><h2 id="sjv-safety-h">Safe by design, and honest about what is unknown</h2><p class="sjv-lead">Harvested moss is hazardous waste until proven otherwise, and pyrolysis is also the step that ends the life of the moss.</p><div class="sjv-body"><ul><li><strong>Hazardous until proven otherwise.</strong> India’s Hazardous and Other Wastes Rules, 2016 classify heavy-metal-bearing wastes as hazardous. We would bag, label and store harvested moss as hazardous waste, and check local rules for transporting it.</li><li><strong>Pyrolysis doubles as biocontainment.</strong> No living cells survive 400 to 500 °C in an oxygen-free retort, so if our moss is engineered, pyrolysis is also the step that ends its life. The plan harvests the moss before it can spread by spores or fragments.</li><li><strong>Scrub the off-gas.</strong> Cadmium volatilises during pyrolysis.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></li><li><strong>No char on farmland without a leaching test.</strong> Heavy metals and polycyclic aromatic hydrocarbons may persist in biochar.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup> Our soil product is for non-food land only.</li><li><strong>Approval before any release.</strong> In India, the Genetic Engineering Appraisal Committee, under the Ministry of Environment, Forest and Climate Change, appraises proposals to release genetically engineered organisms into the environment, including experimental field trials, under the Rules, 1989 of the Environment (Protection) Act, 1986.<sup class="sjv-cite"><a href="#sjv-ref-8" aria-label="Reference 8">8</a></sup> State pollution control boards would also decide whether the char and its leachate are acceptable.</li><li><strong>Lab safety.</strong> Handle phosphoric acid with gloves, goggles and a fume hood. Pyrolysis gas contains carbon monoxide: burn it or vent it safely, never into the lab.</li></ul>
+<h3>Open challenges</h3>
+<ul><li>The best sorbent in Muratore et al. lost about 80% of its capacity after one reuse cycle.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li>Real effluents are salty: 0.1 M NaNO₃ halved Dy uptake in the same study.<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></li><li>We do not yet know moss biomass yield per hectare or its metal load at harvest; both set the scale of everything on this page.</li><li>In some jurisdictions, char made from hazardous waste may itself be classed as hazardous.</li></ul></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-lca" aria-labelledby="sjv-lca-h"><div class="sjv-wrap"><p class="sjv-kicker">Life-cycle assessment</p><h2 id="sjv-lca-h">How we would test whether biochar is really better</h2><p class="sjv-lead">Our life-cycle assessment would compare two fates for one tonne of dry, metal-laden moss: pyrolysis to biochar, against secure landfill or open burning.</p><div class="sjv-body"><ul><li><strong>Question.</strong> Does turning harvested moss into biochar lower the climate and toxicity burden of moss phytoremediation, compared with landfilling or burning the biomass?</li><li><strong>Functional unit.</strong> 1 t of dry moss biomass at harvest (or 1 ha of land remediated, once we have field data).</li><li><strong>Boundary.</strong> Cradle to grave: growing and deploying the moss, harvest, drying, pyrolysis, optional activation, use of the char, and the end of life of the spent char.</li><li><strong>Method.</strong> ISO 14040 and 14044; a free tool such as openLCA is enough for a screening LCA.</li></ul>
+<figure class="sjv-flow-fig"><svg class="sjv-flow" viewBox="0 0 1000 500" role="img" aria-labelledby="sjv-lca-t sjv-lca-d" xmlns="http://www.w3.org/2000/svg"><title id="sjv-lca-t">Life-cycle assessment boundary: our route against the baseline</title><desc id="sjv-lca-d">Inside the system boundary, counted from cradle to grave: moss growth in the lab and at the site, harvest and drying, pyrolysis at 400 to 500 degrees Celsius under nitrogen, char use as sorbent or soil, and end of life by metal recovery. Pyrolysis sends syngas and bio-oil to be burned for heat, which flows back to drying, and its off-gas passes a scrubber that catches cadmium. The baseline we compare against: moss growth, harvest, then landfill or open burning.</desc><defs><marker id="sjv-ah-lca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6d66"/></marker></defs><rect class="sjv-flow-dash" x="10" y="10" width="980" height="330" rx="16"/><text class="sjv-flow-t3" x="30" y="40">System boundary: our route, cradle to grave</text><rect class="sjv-flow-box" x="30" y="60" width="165" height="74" rx="12"/><text class="sjv-flow-t1" x="112.5" y="93.0" text-anchor="middle">Moss growth</text><text class="sjv-flow-t2" x="112.5" y="117.0" text-anchor="middle">lab and site</text><rect class="sjv-flow-box" x="225" y="60" width="165" height="74" rx="12"/><text class="sjv-flow-t1" x="307.5" y="93.0" text-anchor="middle">Harvest, dry</text><text class="sjv-flow-t2" x="307.5" y="117.0" text-anchor="middle">drying energy</text><rect class="sjv-flow-box-hl" x="420" y="60" width="165" height="74" rx="12"/><text class="sjv-flow-t1" x="502.5" y="93.0" text-anchor="middle">Pyrolysis</text><text class="sjv-flow-t2" x="502.5" y="117.0" text-anchor="middle">400 to 500 °C, N₂</text><rect class="sjv-flow-box" x="615" y="60" width="165" height="74" rx="12"/><text class="sjv-flow-t1" x="697.5" y="93.0" text-anchor="middle">Char use</text><text class="sjv-flow-t2" x="697.5" y="117.0" text-anchor="middle">sorbent or soil</text><rect class="sjv-flow-box" x="810" y="60" width="165" height="74" rx="12"/><text class="sjv-flow-t1" x="892.5" y="93.0" text-anchor="middle">End of life</text><text class="sjv-flow-t2" x="892.5" y="117.0" text-anchor="middle">metal recovery</text><path class="sjv-flow-ln" d="M195,97 L223,97" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M390,97 L418,97" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M585,97 L613,97" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M780,97 L808,97" marker-end="url(#sjv-ah-lca)"/><rect class="sjv-flow-box" x="205" y="230" width="200" height="74" rx="12"/><text class="sjv-flow-t1" x="305.0" y="263.0" text-anchor="middle">Syngas, bio-oil</text><text class="sjv-flow-t2" x="305.0" y="287.0" text-anchor="middle">burned for heat</text><rect class="sjv-flow-box" x="520" y="230" width="210" height="74" rx="12"/><text class="sjv-flow-t1" x="625.0" y="263.0" text-anchor="middle">Off-gas scrubber</text><text class="sjv-flow-t2" x="625.0" y="287.0" text-anchor="middle">catches cadmium</text><path class="sjv-flow-ln" d="M455,134 L455,267 L407,267" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M565,134 L565,228" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M305,230 L305,136" marker-end="url(#sjv-ah-lca)"/><text class="sjv-flow-lbl" x="315" y="190" text-anchor="start">heat for drying</text><text class="sjv-flow-t3" x="30" y="392">Baseline we compare against</text><rect class="sjv-flow-dash" x="30" y="410" width="165" height="70" rx="12"/><text class="sjv-flow-t1" x="112.5" y="451.0" text-anchor="middle">Moss growth</text><rect class="sjv-flow-dash" x="225" y="410" width="165" height="70" rx="12"/><text class="sjv-flow-t1" x="307.5" y="451.0" text-anchor="middle">Harvest</text><rect class="sjv-flow-dash" x="420" y="410" width="300" height="70" rx="12"/><text class="sjv-flow-t1" x="570.0" y="451.0" text-anchor="middle">Landfill or open burning</text><path class="sjv-flow-ln" d="M195,445 L223,445" marker-end="url(#sjv-ah-lca)"/><path class="sjv-flow-ln" d="M390,445 L418,445" marker-end="url(#sjv-ah-lca)"/></svg><ol class="sjv-flow-list"><li>Inside the boundary, cradle to grave: moss growth (lab and site), harvest and drying, pyrolysis at 400 to 500 °C under nitrogen, char use as sorbent or soil, and end of life by metal recovery.</li><li>Pyrolysis gives syngas and bio-oil, burned for heat that flows back to drying.</li><li>Pyrolysis off-gas passes a scrubber, which is where cadmium leaves the system.</li><li>The baseline we compare against: moss growth, harvest, then landfill or open burning.</li></ol><figcaption>The life-cycle boundary runs from growing the moss to the fate of the spent char. Pyrolysis (highlighted) is the step our project adds. Redrawn from our implementation plan.</figcaption></figure>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="What we would record at each stage of the life cycle.">
+<table class="sjv-table">
+<caption>What we would record at each stage of the life cycle.</caption>
+<thead><tr><th scope="col">Stage</th><th scope="col">Inputs to record</th><th scope="col">Outputs to record</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row">Moss growth and deployment</th><td>Growth medium, water, lab energy, transport to site</td><td>Moss mass deployed</td><td>Our lab records</td></tr>
+<tr><th scope="row">Harvest and drying</th><td>Fuel, labour, drying energy</td><td>Dry mass, moisture lost</td><td>Measured; moist feedstock raises the energy needed to reach pyrolysis temperature<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></td></tr>
+<tr><th scope="row">Pyrolysis</th><td>Electricity or fuel, N₂</td><td>Char, bio-oil and syngas yields; metals in each</td><td>Measured; ICP-OES</td></tr>
+<tr><th scope="row">Activation (sorbent only)</th><td>H₃PO₄, wash water</td><td>Acidic wash water</td><td>Muratore et al. recipe<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup></td></tr>
+<tr><th scope="row">Use</th><td>Char applied per litre treated or per m² of soil</td><td>Metals captured or leached</td><td>Measured</td></tr>
+<tr><th scope="row">End of life</th><td>Acid for recovery, landfill transport</td><td>Recovered metal, residue</td><td>Measured or estimated</td></tr>
+</tbody></table></div>
+<p>Yaashikaa et al. split a pyrolysis plant into five unit processes for LCA: feedstock preparation and drying, pyrolysis reactor, quench condenser, char recovery and heater cycle.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup> We would use the same split to show which unit is the hotspot. The impact categories: global warming (kg CO₂-eq), energy demand (MJ), metal emissions to air (cadmium especially), metals leached to water and soil, and land returned to use.</p>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Comparisons from other studies, not our results.">
+<table class="sjv-table">
+<caption>Comparisons from other studies, not our results.</caption>
+<thead><tr><th scope="col">Benchmark</th><th scope="col">Value</th><th scope="col">Original study, as cited</th></tr></thead><tbody>
+<tr><th scope="row">Greenhouse-gas saving of straw biochar</th><td>0.94 t CO₂-eq per t of straw, plus US$20.98 profit</td><td>Ji et al. 2018, cited in Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td></tr>
+<tr><th scope="row">Net greenhouse-gas saving of biochar from waste in Ghana</th><td>0.43 t CO₂-eq per t of waste</td><td>Galgani et al. 2014, cited in Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td></tr>
+<tr><th scope="row">Saving from biochar applied to soil</th><td>Up to 2.74 t CO₂-eq per t of biochar</td><td>Muñoz et al. 2017, cited in Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td></tr>
+<tr><th scope="row">Energy to make the sorbent</th><td>Biochar 6.1 MJ/kg against activated carbon 97 MJ/kg</td><td>Yaashikaa et al.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup></td></tr>
+</tbody></table></div>
+<p>Hotspots to watch: drying wet moss; the nitrogen supply; making and neutralising phosphoric acid; and cadmium leaving in the off-gas. Soil-carbon credits assume clean char: if our char fails the leaching test, no carbon-storage benefit can be claimed on farmland.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-swot" aria-labelledby="sjv-swot-h"><div class="sjv-wrap"><p class="sjv-kicker">SWOT</p><h2 id="sjv-swot-h">Our edge is turning a waste into a product; our gap is moss data</h2><p class="sjv-lead">The biochar step turns a hazardous waste into products. Our main weakness is that every number so far comes from other feedstocks.</p><div class="sjv-body"><figure class="sjv-swot-fig"><p class="sjv-swot-axes">Internal factors on top, external below; helpful on the left, harmful on the right.</p><div class="sjv-swot"><section class="sjv-swot-q sjv-swot-good"><h3>Strengths</h3><ul><li>Turns hazardous biomass into a product</li><li>Low-energy sorbent: 6.1 against 97 MJ/kg for activated carbon</li><li>Tunable by temperature and activation</li><li>Pyrolysis also ends engineered moss</li><li>Feedstock arrives with a clean-up fee</li></ul></section><section class="sjv-swot-q sjv-swot-bad"><h3>Weaknesses</h3><ul><li>No moss char data yet, only benchmarks</li><li>Cadmium volatilises at high temperature</li><li>Sorbent lost about 80% of its capacity on reuse</li><li>Uptake falls in salty or acidic water</li><li>Moss yield per hectare still unknown</li></ul></section><section class="sjv-swot-q sjv-swot-good"><h3>Opportunities</h3><ul><li>14 to 17% of cropland exceeds metal limits</li><li>Bioremediation: US$17.8 billion in 2025</li><li>Critical-metal recovery from e-waste</li><li>Local pyrolysis units, rural jobs</li><li>Biochar makers as pyrolysis partners</li></ul></section><section class="sjv-swot-q sjv-swot-bad"><h3>Threats</h3><ul><li>Char may be classed as hazardous waste</li><li>Metals leaching back into soil</li><li>Dig-and-dump wins on tight deadlines</li><li>Activated carbon is the trusted default</li><li>Public worry about engineered organisms</li></ul></section></div><figcaption>SWOT for moss phytoremediation with biochar. Sources: energy figures from Yaashikaa et al.;<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup> reuse, salt and pH effects from Muratore et al.;<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> cadmium behaviour from He et al.;<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup> the cropland figure from Hou et al.;<sup class="sjv-cite"><a href="#sjv-ref-1" aria-label="Reference 1">1</a></sup> the market size from Grand View Research.<sup class="sjv-cite"><a href="#sjv-ref-9" aria-label="Reference 9">9</a></sup></figcaption></figure></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-market" aria-labelledby="sjv-market-h"><div class="sjv-wrap"><p class="sjv-kicker">Market and economics</p><h2 id="sjv-market-h">Where Sanjeevani would sit in the market, and who would pay</h2><p class="sjv-lead">We sit where two growing markets meet: bioremediation, worth about US$17.8 billion in 2025, and biochar, a much smaller market of a few hundred million dollars.</p><div class="sjv-body"><div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Market-research firms disagree widely on biochar’s size, so we read these as orders of magnitude, not facts.">
+<table class="sjv-table sjv-table-wide">
+<caption>Market-research firms disagree widely on biochar’s size, so we read these as orders of magnitude, not facts.</caption>
+<thead><tr><th scope="col">Market</th><th scope="col">Size</th><th scope="col">Growth</th><th scope="col">Why it matters to us</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row">Bioremediation</th><td>US$17.8 billion (2025) to US$42.1 billion (2033)</td><td>11.6% a year (2026 to 2033); Asia Pacific fastest at 13.6%</td><td>Phytoremediation held 31.9% of it and soil remediation 39.4% in 2025</td><td>Grand View Research<sup class="sjv-cite"><a href="#sjv-ref-9" aria-label="Reference 9">9</a></sup></td></tr>
+<tr><th scope="row">Biochar</th><td>US$219.6 million (2023 estimate) to US$389.3 million (2028)</td><td>12.1% a year (2023 to 2028)</td><td>Driven by low-carbon policy, organic farming and carbon credits</td><td>BCC Research<sup class="sjv-cite"><a href="#sjv-ref-10" aria-label="Reference 10">10</a></sup></td></tr>
+</tbody></table></div>
+<h3>Other ways to deal with metal-polluted land</h3>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Competing approaches, from our implementation plan.">
+<table class="sjv-table">
+<caption>Competing approaches, from our implementation plan.</caption>
+<thead><tr><th scope="col">Option</th><th scope="col">Strength</th><th scope="col">Weakness</th><th scope="col">Where we fit</th></tr></thead><tbody>
+<tr><th scope="row">Dig and dump (excavate to landfill)</th><td>Fast, certain</td><td>Expensive; moves the pollution elsewhere; destroys topsoil</td><td>Slower, but leaves the land in place</td></tr>
+<tr><th scope="row">Chemical stabilisation or soil washing</th><td>Proven engineering</td><td>Chemicals and water; metals stay on site or in sludge</td><td>We remove metals and add value to them</td></tr>
+<tr><th scope="row">Other phytoremediation plants</th><td>Cheap, green, the largest bioremediation technology</td><td>Slow; the harvested biomass is a hazardous waste with no set fate</td><td>Same strengths, plus a defined end-of-life product</td></tr>
+<tr><th scope="row">Commercial biochar makers</th><td>Scale, carbon-credit sales</td><td>Use clean feedstock; do not remediate land</td><td>Potential partners for pyrolysis capacity</td></tr>
+</tbody></table></div>
+<p>A useful signal: biochar made from a ‘problem’ biomass already sells. India’s Varaha makes biochar from the invasive shrub <em>Prosopis juliflora</em> in Gujarat, and in January 2025 agreed to deliver 100,000 tonnes of carbon-removal credits to Google by 2030.<sup class="sjv-cite"><a href="#sjv-ref-11" aria-label="Reference 11">11</a></sup> Our moss would be a problem biomass too; the difference is the metals, which is why our first market would be metal capture, not carbon credits.</p>
+<h3 id="sjv-money">Where the money would come from</h3>
+<p>Our model would be paid for by the clean-up fee land owners already face, so the char products would only need to cover drying, pyrolysis, testing and transport. Carbon credits are upside, not the base case.</p>
+<div class="sjv-table-wrap" role="region" tabindex="0" aria-label="Revenue streams and price benchmarks, as of October 2026.">
+<table class="sjv-table sjv-table-wide">
+<caption>Revenue streams and price benchmarks, as of October 2026.</caption>
+<thead><tr><th scope="col">Revenue stream</th><th scope="col">Price benchmark</th><th scope="col">Source</th><th scope="col">What we still need</th></tr></thead><tbody>
+<tr><th scope="row">Clean-up fee from the land owner</th><td>A biowaste gate fee of EUR 9.5 against EUR 6 depreciation and EUR 5 running cost left the net cost near zero</td><td>Maroušek et al. 2020, cited in Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td><td>Fee per hectare, from land-owner interviews</td></tr>
+<tr><th scope="row">Sorbent char</th><td>Activated carbon: US$2.69/kg in India, September 2026.<sup class="sjv-cite"><a href="#sjv-ref-12" aria-label="Reference 12">12</a></sup> Biochar: about US$2.48/kg average (a 2013 figure)</td><td>Business Analytiq; Jirka and Tomlinson 2013, cited in Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td><td>Metal uptake per kg of moss char</td></tr>
+<tr><th scope="row">Recovered metals</th><td>Our moss, <em>P. patens</em>, accumulates Zn, Cu and Fe; Cu and Fe stay in the char during pyrolysis, while Zn behaviour must be measured</td><td>He et al.<sup class="sjv-cite"><a href="#sjv-ref-4" aria-label="Reference 4">4</a></sup></td><td>Metal grade in the char and its acid leachate</td></tr>
+<tr><th scope="row">Carbon credits (only for clean char a registry accepts)</th><td>EUR 100 to 210 per t CO₂, about EUR 130 on the 2026 Nasdaq/Puro benchmark; 1 t of biochar removes roughly 2 to 3 t CO₂</td><td>Senken<sup class="sjv-cite"><a href="#sjv-ref-13" aria-label="Reference 13">13</a></sup></td><td>Whether metal-rich char can qualify at all</td></tr>
+<tr><th scope="row">Energy</th><td>Syngas and bio-oil heat the drying step</td><td>Zhao et al.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></td><td>Heat balance of our retort</td></tr>
+</tbody></table></div>
+<div class="sjv-formula" role="group" aria-label="Formula"><p class="sjv-formula-eq"><strong>Margin per tonne of dry moss</strong> = clean-up fee + (char yield × char price) + revenue from recovered metals + carbon credits, minus the costs of drying, pyrolysis, activation, testing, transport and scrubbing</p><p class="sjv-formula-note">Each term would be filled from lab data and interviews. Char yield from pyrolysis runs 25 to 63% of feedstock mass (Windeatt et al. 2014, cited in Zhao et al.), so one tonne of dry moss would give roughly a quarter to two-thirds of a tonne of char.<sup class="sjv-cite"><a href="#sjv-ref-5" aria-label="Reference 5">5</a></sup></p></div>
+<h3>Pricing</h3>
+<ul><li><strong>Price per gram of metal removed, not per kilogram of char.</strong> A cheaper char that holds less metal can still lose. Our break-even price against activated carbon would be: price of moss char = price of activated carbon × (metal uptake of moss char ÷ metal uptake of activated carbon), with uptake in mg per g, measured in the buyer’s own effluent.</li><li><strong>Sell the sorbent with a take-back.</strong> The best benchmark sorbent lost about 80% of its capacity after one reuse,<sup class="sjv-cite"><a href="#sjv-ref-7" aria-label="Reference 7">7</a></sup> so we would sell it as single-use and take spent char back for metal recovery.</li><li><strong>Price the clean-up below dig-and-dump per hectare</strong>, and show that the land stays in place.</li></ul>
+<h3>Going to market in India</h3>
+<ol><li><strong>Start with effluent producers.</strong> Electroplating, battery and e-waste units need sorbents now and buy by the kilogram; land-remediation contracts take longer to close.</li><li><strong>Fund pilots through CSR.</strong> Under Section 135 of the Companies Act, 2013, a company with a net worth of ₹500 crore or more, a turnover of ₹1,000 crore or more, or a net profit of ₹5 crore or more must spend at least 2% of its average net profits of the three preceding financial years on CSR.<sup class="sjv-cite"><a href="#sjv-ref-14" aria-label="Reference 14">14</a></sup> Schedule VII lists ‘maintaining quality of soil, air and water’ among the activities that count.<sup class="sjv-cite"><a href="#sjv-ref-15" aria-label="Reference 15">15</a></sup></li><li><strong>Rent pyrolysis capacity before building it.</strong> India already has industrial biochar producers, such as Varaha in Gujarat;<sup class="sjv-cite"><a href="#sjv-ref-11" aria-label="Reference 11">11</a></sup> partnering avoids capital cost in the pilot phase.</li><li><strong>Bring regulators in early.</strong> State pollution control boards decide whether the char and its leachate are acceptable.</li><li><strong>Add carbon credits last.</strong> Demand is strong: biochar made up 93% of durable carbon removal contracted in the first quarter of 2026, a record quarter of 2.3 million tonnes.<sup class="sjv-cite"><a href="#sjv-ref-13" aria-label="Reference 13">13</a></sup> But buyers want clean, certified char, so this fits our soil-grade stream only.</li></ol>
+<h3>Questions we still need customers to answer</h3>
+<ul><li>What do you pay today to dispose of one tonne of contaminated plant waste?</li><li>What sorbent do you use now, and what does it cost per kilogram?</li><li>Which metal limits does your regulator apply to soil inputs and to treated water?</li><li>Would you accept a slower clean-up if it cost less and left the land usable?</li></ul></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-roadmap" aria-labelledby="sjv-roadmap-h"><div class="sjv-wrap"><p class="sjv-kicker">Roadmap</p><h2 id="sjv-roadmap-h">Four phases, three gates</h2><p class="sjv-lead">We are in phase 1. Each phase must pass a gate before the next begins, and we will set dates once the lab results are in.</p><div class="sjv-body"><figure class="sjv-flow-fig"><ol class="sjv-roadmap" aria-label="Roadmap: four phases with a gate between each"><li class="sjv-road-phase sjv-road-p1 sjv-road-now"><h3>1. Lab tests <span class="sjv-badge sjv-badge-ongoing">We are here</span></h3><ul><li>Pyrolyse moss at 400, 500 and 600 °C</li><li>Characterise and leach-test the char</li></ul></li><li class="sjv-road-gate sjv-road-g1"><span class="sjv-road-gate-mark" aria-hidden="true"></span><div><p class="sjv-label">Gate 1</p><p>Char passes the leaching test; metals balance</p></div></li><li class="sjv-road-phase sjv-road-p2"><h3>2. Pilot</h3><ul><li>Pot and plot trials</li><li>Sorbent tests in real effluent</li><li>Stakeholder talks</li></ul></li><li class="sjv-road-gate sjv-road-g2"><span class="sjv-road-gate-mark" aria-hidden="true"></span><div><p class="sjv-label">Gate 2</p><p>Works in real effluent; feedback from the regulator</p></div></li><li class="sjv-road-phase sjv-road-p3"><h3>3. Field demonstration</h3><ul><li>One partner site</li><li>A small retort on site</li><li>A full metal mass balance</li></ul></li><li class="sjv-road-gate sjv-road-g3"><span class="sjv-road-gate-mark" aria-hidden="true"></span><div><p class="sjv-label">Gate 3</p><p>Cheaper per hectare than dig-and-dump</p></div></li><li class="sjv-road-phase sjv-road-p4"><h3>4. Scale-up</h3><ul><li>Regional pyrolysis hubs</li><li>Sell sorbent and recovered metals</li></ul></li></ol><figcaption class="sjv-formula-note">The gates are the evidence a partner or judge would ask for before believing the next phase. Phases are not to scale.</figcaption></figure>
+<p>At lab scale, batches of a few hundred grams would be pyrolysed in a sealed steel box inside a muffle furnace. A pilot would use a larger batch retort with its own condenser, scrubber and gas burner, near a test site. At full scale, a continuous kiln at a regional hub would take moss from several sites, with burner heat drying the incoming moss.</p>
+<p>Why small and local: small biochar units can create rural jobs, manage waste and be linked in closed loops where one process’s waste is another’s input.<sup class="sjv-cite"><a href="#sjv-ref-2" aria-label="Reference 2">2</a></sup> For us, local units would also mean that contaminated biomass travels short distances.</p></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section" id="sjv-future" aria-labelledby="sjv-future-h"><div class="sjv-wrap"><p class="sjv-kicker">Future prospects</p><h2 id="sjv-future-h">Where we go next</h2><p class="sjv-lead">Our biggest technical limit points to our next direction, and the people we met point to the rest.</p><div class="sjv-body"><h3>Reaching deeper soil</h3>
+<p>Mosses lack true roots, so they can only extract contaminants close to the soil surface, and metals in deeper soil layers stay out of their reach. To go deeper, we may explore engineering higher vascular plants such as ferns. An ecotype of the brake fern <em>Pteris vittata</em> collected in Kerala hyperaccumulates arsenic and chromium, with bioenrichment factors of up to 138 for arsenic and 235 for chromium.<sup class="sjv-cite"><a href="#sjv-ref-16" aria-label="Reference 16">16</a></sup> This suggests that Indian fern ecotypes carry the genetic machinery for multi-metal tolerance. Used as gene donors, such native hyperaccumulators could help us engineer deep-rooted, high-capacity vascular plants that reach deeper soil.</p>
+<h3>Working with what is native</h3>
+<p>Mr. Vinay Sahu asked us why we do not work with native species (<a data-wiki="human-practices" data-hash="#sjv-ch5" href="human-practices#sjv-ch5">Human Practices, Chapter 5</a>). Native hyperaccumulators such as the Kerala fern ecotype are one answer: as gene donors, they would let us build on genetic machinery that already exists in Indian plants.</p>
+<h3>Arsenic in rice: what we will and will not do</h3>
+<p>Paderu showed us arsenic reaching people through rice. Clean biochar made from waste, as in Dr. Srivastava’s work, can reduce the arsenic rice takes up.<sup class="sjv-cite"><a href="#sjv-ref-6" aria-label="Reference 6">6</a></sup> That is a separate line of research from ours: our char would carry the metals our moss collected, so it is meant for water treatment, metal recovery and non-food land, never for fields that grow food.</p>
+<h3>Growing scientists where the problem is</h3>
+<p>With ITDA Paderu, a biotechnology laboratory and new curricula are being planned, so that students in the district can do synthetic biology themselves (<a data-wiki="education" data-hash="#sjv-paderu" href="education#sjv-paderu">Education, Phase 3</a>). Students who can do science in their own district could one day study problems such as arsenic in rice themselves.</p>
+<h3>Commitments in progress</h3>
+<p>With MACUA, we are planning or carrying out work on mine-tailings case studies, mining careers and occupational hazards, and the accessibility of mining facilities, information and schemes for persons with disabilities. We will report outcomes only when they are complete and documented.</p>
+<h3>Questions we still have to answer</h3>
+<ul><li>How much moss biomass grows per hectare, and how much metal it holds at harvest?</li><li>What leaching limit will the regulator apply to our char?</li><li>How does zinc behave during pyrolysis of our moss?</li><li>Can metal-rich char ever qualify for carbon credits?</li><li>What would a clean-up cost per hectare, against excavation?</li></ul></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+<section class="sjv-section sjv-section-refs" id="sjv-references" aria-labelledby="sjv-references-h"><div class="sjv-wrap"><p class="sjv-kicker">Sources</p><h2 id="sjv-references-h">References</h2><ol class="sjv-refs"><li id="sjv-ref-1">Hou D. et al. (2025). Global soil pollution by toxic metals threatens agriculture and human health. <em>Science</em> 388, 316-321. doi:10.1126/science.adr5214</li><li id="sjv-ref-2">Yaashikaa P.R., Senthil Kumar P., Varjani S., Saravanan A. (2020). A critical review on the biochar production techniques, characterization, stability and applications for circular bioeconomy. <em>Biotechnology Reports</em> 28, e00570. doi:10.1016/j.btre.2020.e00570</li><li id="sjv-ref-3">Mai N.T., Nguyen N.H., Tsubota T., Shinogi Y., Dultz S., Nguyen M.N. (2019). Fern <em>Dicranopteris linearis</em>-derived biochars: Adjusting surface properties by direct processing of the silica phase. <em>Colloids and Surfaces A</em> 583, 123937. doi:10.1016/j.colsurfa.2019.123937</li><li id="sjv-ref-4">He J., Strezov V. et al. (2019). Effect of temperature on heavy metal(loid) deportment during pyrolysis of <em>Avicennia marina</em> biomass obtained from phytoremediation. <em>Bioresource Technology</em> 278, 214-222. doi:10.1016/j.biortech.2019.01.101</li><li id="sjv-ref-5">Zhao W., Yang H., He S., Zhao Q., Wei L. (2021). A review of biochar in anaerobic digestion to improve biogas production: Performances, mechanisms and economic assessments. <em>Bioresource Technology</em> 341, 125797. doi:10.1016/j.biortech.2021.125797</li><li id="sjv-ref-6">Pathak S.K., Singh S., Srivastava S. (2026). Revealing the efficacy of fruit peel derived biochar in reducing arsenic accumulation in rice (<em>Oryza sativa</em> L.). <em>Land Degradation &amp; Development</em> 37, 10063-10078. doi:10.1002/ldr.70753</li><li id="sjv-ref-7">Muratore N., Lascari D., Cataldo S., et al. (2025). Recovery of rare earth elements by adsorption on biochar of dead <em>Posidonia oceanica</em> leaves. <em>Journal of Rare Earths</em> 43, 2551-2561. doi:10.1016/j.jre.2024.11.010</li><li id="sjv-ref-8">Department of Biotechnology, Government of India. Indian Biosafety Knowledge Portal, Committees: the Rules, 1989 for hazardous micro-organisms and genetically engineered organisms or cells, notified under the Environment (Protection) Act, 1986, and the Genetic Engineering Appraisal Committee. https://ibkp.dbtindia.gov.in/Content/Commitee (accessed October 2026)</li><li id="sjv-ref-9">Grand View Research. Bioremediation Market Size, Share and Trends Analysis Report (last updated September 2026). https://www.grandviewresearch.com/industry-analysis/bioremediation-market-report (accessed October 2026)</li><li id="sjv-ref-10">BCC Research. Global Biochar Market, report AVM241A. https://www.bccresearch.com/market-research/advanced-materials/biochar-market.html (accessed October 2026)</li><li id="sjv-ref-11">TechCrunch, 16 January 2025. Google strikes world’s largest biochar carbon removal deal with Indian startup Varaha. https://techcrunch.com/2025/01/16/google-strikes-worlds-largest-biochar-carbon-removal-deal-with-indian-startup-varaha</li><li id="sjv-ref-12">Business Analytiq. Activated carbon price index (India, September 2026). https://businessanalytiq.com/procurementanalytics/index/activated-carbon-prices/ (accessed October 2026)</li><li id="sjv-ref-13">Senken. Biochar carbon removal (citing CDR.fyi and the Nasdaq/Puro CORC index). https://www.senken.io/carbon-removal/biochar (accessed October 2026)</li><li id="sjv-ref-14">Government of Odisha, CSR portal. Statutory provisions: Section 135 of the Companies Act, 2013. https://csr.odisha.gov.in/statutoryProvisions.aspx (accessed October 2026)</li><li id="sjv-ref-15">Ministry of Corporate Affairs, Government of India. Notification G.S.R. 130(E), 27 February 2014, amending Schedule VII of the Companies Act, 2013 (The Gazette of India: Extraordinary). Copy: https://new.iitbbs.ac.in/documents/alumni/Schedule-VII-Act.pdf</li><li id="sjv-ref-16">Kalve S., Sarangi B.K., Pandey R.A., Chakrabarti T. (2011). Arsenic and chromium hyperaccumulation by an ecotype of <em>Pteris vittata</em>: prospective for phytoextraction from contaminated water and soil. <em>Current Science</em> 100(6), 888-894.</li></ol><div class="sjv-about"><h3>About this page</h3><p>Every value from the literature on this page is a benchmark from another feedstock (straw, sawdust, fern or seagrass), not a result of ours. Market and price figures were checked on the sources' pages in October 2026.</p><!-- AI-use disclosure (iGEM 2026 Judge Handbook, page 95). Remove the comment markers around the next line ONLY after the team has checked every statement on this page:
+<p class="sjv-ai-note">How this page was written: Team Sanjeevani wrote this page from our implementation plan, research notes and reading. We used an AI assistant to help structure and edit the text, and every statement, number and source was checked by the team against our own records and the cited works.</p>
+--></div><p class="sjv-top"><a href="#sjv-top">Back to top <span aria-hidden="true">↑</span></a></p></div></section>
+</div>
+<script>
+/* Team Sanjeevani wiki page helpers. The page works without them; they fix links between our pages and make the CSV downloads. */
+(function () {
+  "use strict";
+  var root = document.getElementById("sjv-wiki");
+  if (!root) return;
+
+  /* 1. Links to our other wiki pages.
+     On *.igem.wiki the first part of the path is the team name, for example
+     https://2026.igem.wiki/team-name/human-practices, so a link written as
+     data-wiki="education" becomes /team-name/education. */
+  try {
+    if (/(^|\.)igem\.wiki$/.test(location.hostname)) {
+      var seg = location.pathname.split("/").filter(Boolean);
+      if (seg.length) {
+        var base = "/" + seg[0] + "/";
+        var links = root.querySelectorAll("a[data-wiki]");
+        for (var i = 0; i < links.length; i++) {
+          var hash = links[i].getAttribute("data-hash") || "";
+          links[i].setAttribute("href", base + links[i].getAttribute("data-wiki") + hash);
+        }
+      }
+    }
+  } catch (e) { /* keep the relative links */ }
+
+  /* 2. CSV downloads, built in the browser. Nothing is fetched from anywhere else. */
+  var data = null;
+  var holder = document.getElementById("sjv-data");
+  if (holder) {
+    try { data = JSON.parse(holder.textContent); } catch (e) { data = null; }
+  }
+  function csvCell(v) {
+    v = String(v == null ? "" : v);
+    return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  }
+  function toCSV(head, rows) {
+    var lines = [head.map(csvCell).join(",")];
+    for (var i = 0; i < rows.length; i++) lines.push(rows[i].map(csvCell).join(","));
+    return "﻿" + lines.join("\r\n") + "\r\n";
+  }
+  function download(name, text) {
+    var blob = new Blob([text], { type: "text/csv;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = name; a.style.display = "none";
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 0);
+  }
+  var buttons = root.querySelectorAll("[data-sjv-csv]");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function (ev) {
+      if (!data) return;
+      var kind = ev.currentTarget.getAttribute("data-sjv-csv");
+      var set = data[kind];
+      if (set) download(set.file, toCSV(set.head, set.rows));
+    });
+  }
+})();
+
+</script>
+<!-- ================= END SANJEEVANI PROPOSED IMPLEMENTATION CONTENT ================= -->
+</body>
+</html>
